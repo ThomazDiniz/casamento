@@ -49,7 +49,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 5rem 2rem 4rem;
+      padding: 2.5rem 2rem 4rem;
       position: relative;
       overflow: hidden;
     }
@@ -65,22 +65,21 @@
     .hero-epigrafe {
       font-family: var(--serif);
       font-style: italic;
-      font-size: clamp(0.78rem, 1.5vw, 0.92rem);
-      font-weight: 300;
-      color: var(--olive-mid);
-      line-height: 1.75;
-      max-width: 480px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 400;
+      color: var(--olive-deep);
+      line-height: 1.8;
+      max-width: 520px;
       margin-bottom: 3rem;
-      opacity: 0.85;
     }
     .hero-epigrafe span {
       font-style: normal;
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       display: block;
-      margin-top: 0.5rem;
-      color: var(--olive-light);
+      margin-top: 0.6rem;
+      color: var(--olive-mid);
     }
 
     .hero-pre {
@@ -351,7 +350,7 @@
 
 <!-- HERO -->
 <section id="hero">
-  <p class="hero-epigrafe">"Para que todos vejam, e saibam, e considerem, e juntamente entendam<br>que a mão do Senhor fez isto, e o Santo de Israel o criou."<br><span>— Isaías 41:20</span></p>
+  <p class="hero-epigrafe">"Para que todos vejam, e saibam, e considerem, e juntamente entendam<br>que a mão do Senhor fez isto."<br><span>— Isaías 41:20</span></p>
 
   <p class="hero-pre">Convidamos com alegria</p>
   <h1 class="hero-names">
@@ -406,15 +405,27 @@
       Mas se quiserem nos presentear de outra forma,<br />
       ficaremos de coração cheio por qualquer gesto.
     </p>
-    <div class="pix-box" onclick="copiarPix()">
-      <div class="pix-info">
-        <p class="pix-label-text">Chave Pix</p>
-        <p class="pix-key" id="pix-key">PLACEHOLDER_PIX</p>
+    <div style="display:flex; flex-direction:column; gap:0.75rem; width:100%; max-width:380px; margin:0 auto;">
+      <div class="pix-box" onclick="copiarPix('pix-joana')">
+        <div class="pix-info">
+          <p class="pix-label-text">Joana</p>
+          <p class="pix-key" id="pix-joana">PLACEHOLDER_PIX_JOANA</p>
+        </div>
+        <button class="pix-copy-btn" title="Copiar chave">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
       </div>
-      <button class="pix-copy-btn" title="Copiar chave">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        Copiar
-      </button>
+      <div class="pix-box" onclick="copiarPix('pix-thomaz')">
+        <div class="pix-info">
+          <p class="pix-label-text">Thomaz</p>
+          <p class="pix-key" id="pix-thomaz">PLACEHOLDER_PIX_THOMAZ</p>
+        </div>
+        <button class="pix-copy-btn" title="Copiar chave">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
     </div>
     <p class="pix-feedback" id="pix-feedback">✓ Chave copiada!</p>
     <p class="presente-closing">Joana e Thomaz agradecem de coração.</p>
@@ -451,8 +462,8 @@
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   // Copiar Pix
-  function copiarPix() {
-    const key = document.getElementById('pix-key').textContent.trim();
+  function copiarPix(id) {
+    const key = document.getElementById(id).textContent.trim();
     navigator.clipboard.writeText(key).then(() => {
       const msg = document.getElementById('pix-feedback');
       msg.classList.add('show');
