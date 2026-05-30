@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roteiro · Thomaz & Joana · 10.10.2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --olive-dark:  #4a5240;
+      --olive:       #6b7155;
+      --olive-mid:   #8a9170;
+      --olive-light: #c5cab0;
+      --olive-pale:  #e8ead8;
+      --cream:       #f7f5ee;
+      --white:       #ffffff;
+      --text-mid:    #555;
+      --gold:        #b5984a;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans:  'Jost', system-ui, sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--text-mid);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(247,245,238,0.95);
+      border-bottom: 1px solid var(--olive-light);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-home {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--olive-dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color .2s;
+    }
+    .nav-home:hover { color: var(--gold); }
+    .nav-home svg { width: 14px; height: 14px; stroke: currentColor; fill: none; }
+
+    .nav-title {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive-mid);
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 4rem 1.5rem 3rem;
+      border-bottom: 1px solid var(--olive-pale);
+    }
+
+    .header-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--olive-mid);
+      margin-bottom: 0.75rem;
+    }
+
+    .header-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 300;
+      color: var(--olive-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .header-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--olive-mid);
+    }
+
+    /* MAIN */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    .bloco { margin-bottom: 3rem; }
+
+    .bloco-titulo {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .bloco-local {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--olive-mid);
+      margin-bottom: 0.75rem;
+    }
+
+    .bloco-items { list-style: none; }
+
+    .bloco-items li {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--olive-pale);
+      font-size: 0.9rem;
+    }
+    .bloco-items li:first-child { border-top: 1px solid var(--olive-pale); }
+
+    .item-hora {
+      font-weight: 500;
+      color: var(--olive);
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+
+    .item-desc { color: var(--text-mid); }
+
+    /* divider */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--olive-pale);
+      margin: 2.5rem 0;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid var(--olive-pale);
+    }
+    footer p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--olive-mid);
+    }
+
+    @media (max-width: 500px) {
+      .bloco-items li { grid-template-columns: 110px 1fr; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-home" href="index.html">
+    <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Thomaz &amp; Joana
+  </a>
+  <span class="nav-title">Roteiro</span>
+</nav>
+
+<header>
+  <p class="header-label">10 · Outubro · 2026 · Sábado</p>
+  <h1 class="header-title">Roteiro do Dia</h1>
+  <p class="header-sub">Casamento Thomaz &amp; Joana</p>
+</header>
+
+<main>
+
+  <div class="bloco">
+    <h2 class="bloco-titulo">Observações Gerais</h2>
+    <ul class="bloco-items">
+      <li><span class="item-hora">08:00h</span><span class="item-desc">Cerimonial chegar.</span></li>
+      <li><span class="item-hora">08:15h</span><span class="item-desc">Fotógrafos e demais fornecedores chegar.</span></li>
+      <li><span class="item-hora">08:30h</span><span class="item-desc">Noivos, pais, padrinhos e pajens chegar.</span></li>
+      <li><span class="item-hora">08:30h</span><span class="item-desc">Convidados começar a chegar.</span></li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="bloco">
+    <h2 class="bloco-titulo">Cerimônia</h2>
+    <p class="bloco-local">Igreja Santo Antônio de Lisboa – Tambaú</p>
+    <ul class="bloco-items">
+      <li><span class="item-hora">09:00h</span><span class="item-desc">Entrada dos padrinhos.</span></li>
+      <li><span class="item-hora">09:05h</span><span class="item-desc">Entrada dos pais do noivo.</span></li>
+      <li><span class="item-hora">09:07h</span><span class="item-desc">Entrada dos pais da noiva.</span></li>
+      <li><span class="item-hora">09:10h</span><span class="item-desc">Entrada do noivo acompanhado da mãe.</span></li>
+      <li><span class="item-hora">09:12h</span><span class="item-desc">Entrada das daminhas e pajens.</span></li>
+      <li><span class="item-hora">09:15h</span><span class="item-desc">Entrada da noiva acompanhada do pai.</span></li>
+      <li><span class="item-hora">09:20h</span><span class="item-desc">Início da celebração pelo padre.</span></li>
+      <li><span class="item-hora">09:25h</span><span class="item-desc">Liturgia da Palavra (leituras, salmo, evangelho e homilia).</span></li>
+      <li><span class="item-hora">09:50h</span><span class="item-desc">Rito do Matrimônio.</span></li>
+      <li><span class="item-hora">09:55h</span><span class="item-desc">Troca das alianças.</span></li>
+      <li><span class="item-hora">10:00h</span><span class="item-desc">Bênção nupcial.</span></li>
+      <li><span class="item-hora">10:05h</span><span class="item-desc">Comunhão Eucarística.</span></li>
+      <li><span class="item-hora">10:15h</span><span class="item-desc">Assinatura dos documentos pelos noivos e testemunhas.</span></li>
+      <li><span class="item-hora">10:25h</span><span class="item-desc">Consagração do casal à Nossa Senhora e entrega do buquê (opcional).</span></li>
+      <li><span class="item-hora">10:30h</span><span class="item-desc">Bênção final.</span></li>
+      <li><span class="item-hora">10:35h</span><span class="item-desc">Apresentação oficial do casal e beijo dos noivos.</span></li>
+      <li><span class="item-hora">10:40h</span><span class="item-desc">Saída dos noivos.</span></li>
+      <li><span class="item-hora">10:45h</span><span class="item-desc">Saída dos pais, padrinhos, daminhas e pajens.</span></li>
+      <li><span class="item-hora">10:50h</span><span class="item-desc">Jogo do buquê na área externa da igreja (opcional).</span></li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="bloco">
+    <h2 class="bloco-titulo">Fotos</h2>
+    <p class="bloco-local">Igreja Santo Antônio de Lisboa</p>
+    <ul class="bloco-items">
+      <li><span class="item-hora">11:00h – 11:20h</span><span class="item-desc">Fotos com familiares, padrinhos e convidados na igreja.</span></li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="bloco">
+    <h2 class="bloco-titulo">Deslocamento</h2>
+    <ul class="bloco-items">
+      <li><span class="item-hora">11:20h – 11:30h</span><span class="item-desc">Deslocamento dos convidados para o Sal e Brasa.</span></li>
+    </ul>
+  </div>
+
+  <hr class="divider" />
+
+  <div class="bloco">
+    <h2 class="bloco-titulo">Recepção</h2>
+    <p class="bloco-local">Sal e Brasa</p>
+    <ul class="bloco-items">
+      <li><span class="item-hora">11:30h</span><span class="item-desc">Chegada dos convidados.</span></li>
+      <li><span class="item-hora">11:40h</span><span class="item-desc">Entrada dos noivos.</span></li>
+      <li><span class="item-hora">11:45h</span><span class="item-desc">Início do almoço.</span></li>
+      <li><span class="item-hora">13:00h</span><span class="item-desc">Corte do bolo e brinde.</span></li>
+      <li><span class="item-hora">13:30h</span><span class="item-desc">Fotos e confraternização.</span></li>
+      <li><span class="item-hora">14:00h</span><span class="item-desc">Jogo do buquê (opcional).</span></li>
+      <li><span class="item-hora">15:00h</span><span class="item-desc">Encerramento da recepção.</span></li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  <p>Thomaz &amp; Joana · 10 de outubro de 2026</p>
+</footer>
+
+</body>
+</html>

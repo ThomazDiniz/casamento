@@ -303,53 +303,6 @@
     .btn-map:hover { color: var(--gold); border-color: var(--gold); }
     .btn-map svg { width: 14px; height: 14px; }
 
-    /* ── Roteiro ──────────────────────────────────────────── */
-    #roteiro { background: var(--white); max-width: 100%; padding: 6rem 1.5rem; }
-    #roteiro > .inner { max-width: 820px; margin: 0 auto; }
-
-    .bloco {
-      margin-bottom: 3.5rem;
-    }
-
-    .bloco-titulo {
-      font-family: var(--serif);
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--olive-dark);
-      letter-spacing: 0.04em;
-      margin-bottom: 0.25rem;
-    }
-
-    .bloco-local {
-      font-size: 0.78rem;
-      color: var(--olive-mid);
-      letter-spacing: 0.1em;
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-
-    .bloco-items { list-style: none; }
-
-    .bloco-items li {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 0.75rem;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid var(--olive-pale);
-      font-size: 0.9rem;
-    }
-
-    .bloco-items li:first-child { border-top: 1px solid var(--olive-pale); }
-
-    .item-hora {
-      font-weight: 500;
-      color: var(--olive);
-      white-space: nowrap;
-      font-size: 0.85rem;
-    }
-
-    .item-desc { color: var(--text-mid); }
-
     /* ── PIX ──────────────────────────────────────────────── */
     #pix {
       text-align: center;
@@ -459,7 +412,6 @@
 <!-- NAV -->
 <nav>
   <a href="#locais">Locais</a>
-  <a href="#roteiro">Roteiro</a>
   <a href="#pix">Presente</a>
 </nav>
 
@@ -534,80 +486,6 @@
     </div>
   </div>
 </section>
-
-<!-- ROTEIRO -->
-<div id="roteiro">
-  <div class="inner reveal">
-    <p class="section-label">O dia especial</p>
-    <h2 class="section-title">Roteiro</h2>
-    <div class="section-line"></div>
-
-    <div class="bloco">
-      <h3 class="bloco-titulo">Observações Gerais</h3>
-      <ul class="bloco-items">
-        <li><span class="item-hora">08:00h</span><span class="item-desc">Cerimonial chegar.</span></li>
-        <li><span class="item-hora">08:15h</span><span class="item-desc">Fotógrafos e demais fornecedores chegar.</span></li>
-        <li><span class="item-hora">08:30h</span><span class="item-desc">Noivos, pais, padrinhos e pajens chegar.</span></li>
-        <li><span class="item-hora">08:30h</span><span class="item-desc">Convidados começar a chegar.</span></li>
-      </ul>
-    </div>
-
-    <div class="bloco">
-      <h3 class="bloco-titulo">Cerimônia</h3>
-      <p class="bloco-local">Igreja Santo Antônio de Lisboa – Tambaú</p>
-      <ul class="bloco-items">
-        <li><span class="item-hora">09:00h</span><span class="item-desc">Entrada dos padrinhos.</span></li>
-        <li><span class="item-hora">09:05h</span><span class="item-desc">Entrada dos pais do noivo.</span></li>
-        <li><span class="item-hora">09:07h</span><span class="item-desc">Entrada dos pais da noiva.</span></li>
-        <li><span class="item-hora">09:10h</span><span class="item-desc">Entrada do noivo acompanhado da mãe.</span></li>
-        <li><span class="item-hora">09:12h</span><span class="item-desc">Entrada das daminhas e pajens.</span></li>
-        <li><span class="item-hora">09:15h</span><span class="item-desc">Entrada da noiva acompanhada do pai.</span></li>
-        <li><span class="item-hora">09:20h</span><span class="item-desc">Início da celebração pelo padre.</span></li>
-        <li><span class="item-hora">09:25h</span><span class="item-desc">Liturgia da Palavra (leituras, salmo, evangelho e homilia).</span></li>
-        <li><span class="item-hora">09:50h</span><span class="item-desc">Rito do Matrimônio.</span></li>
-        <li><span class="item-hora">09:55h</span><span class="item-desc">Troca das alianças.</span></li>
-        <li><span class="item-hora">10:00h</span><span class="item-desc">Bênção nupcial.</span></li>
-        <li><span class="item-hora">10:05h</span><span class="item-desc">Comunhão Eucarística.</span></li>
-        <li><span class="item-hora">10:15h</span><span class="item-desc">Assinatura dos documentos pelos noivos e testemunhas.</span></li>
-        <li><span class="item-hora">10:25h</span><span class="item-desc">Consagração do casal à Nossa Senhora e entrega do buquê (opcional).</span></li>
-        <li><span class="item-hora">10:30h</span><span class="item-desc">Bênção final.</span></li>
-        <li><span class="item-hora">10:35h</span><span class="item-desc">Apresentação oficial do casal e beijo dos noivos.</span></li>
-        <li><span class="item-hora">10:40h</span><span class="item-desc">Saída dos noivos.</span></li>
-        <li><span class="item-hora">10:45h</span><span class="item-desc">Saída dos pais, padrinhos, daminhas e pajens.</span></li>
-        <li><span class="item-hora">10:50h</span><span class="item-desc">Jogo do buquê na área externa da igreja (opcional).</span></li>
-      </ul>
-    </div>
-
-    <div class="bloco">
-      <h3 class="bloco-titulo">Fotos</h3>
-      <p class="bloco-local">Igreja Santo Antônio de Lisboa</p>
-      <ul class="bloco-items">
-        <li><span class="item-hora">11:00h – 11:20h</span><span class="item-desc">Fotos com familiares, padrinhos e convidados na igreja.</span></li>
-      </ul>
-    </div>
-
-    <div class="bloco">
-      <h3 class="bloco-titulo">Deslocamento</h3>
-      <ul class="bloco-items">
-        <li><span class="item-hora">11:20h – 11:30h</span><span class="item-desc">Deslocamento dos convidados para o Sal e Brasa.</span></li>
-      </ul>
-    </div>
-
-    <div class="bloco">
-      <h3 class="bloco-titulo">Recepção</h3>
-      <p class="bloco-local">Sal e Brasa</p>
-      <ul class="bloco-items">
-        <li><span class="item-hora">11:30h</span><span class="item-desc">Chegada dos convidados.</span></li>
-        <li><span class="item-hora">11:40h</span><span class="item-desc">Entrada dos noivos.</span></li>
-        <li><span class="item-hora">11:45h</span><span class="item-desc">Início do almoço.</span></li>
-        <li><span class="item-hora">13:00h</span><span class="item-desc">Corte do bolo e brinde.</span></li>
-        <li><span class="item-hora">13:30h</span><span class="item-desc">Fotos e confraternização.</span></li>
-        <li><span class="item-hora">14:00h</span><span class="item-desc">Jogo do buquê (opcional).</span></li>
-        <li><span class="item-hora">15:00h</span><span class="item-desc">Encerramento da recepção.</span></li>
-      </ul>
-    </div>
-  </div>
-</div>
 
 <!-- PIX -->
 <div id="pix">
