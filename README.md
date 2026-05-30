@@ -1,5 +1,7 @@
 # Casamento — Thomaz e Joana
 
+🌐 **GitHub Pages:** [thomazdiniz.github.io/casamento](https://thomazdiniz.github.io/casamento/)
+
 Projeto para centralizar informações do casamento, gerar um convite em PDF e uma página web com link para confirmação de presença (RSVP).
 
 ## Estrutura
