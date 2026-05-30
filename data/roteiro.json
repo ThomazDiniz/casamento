@@ -20,10 +20,10 @@
     {
       "titulo": "Cerimônia",
       "itens": [
-        { "hora": "10:00h", "descricao": "Entrada dos padrinhos." },
+        { "hora": "10:00h", "descricao": "Entrada dos padrinhos — madrinha do noivo acompanhada de (a definir)." },
         { "hora": "10:05h", "descricao": "Entrada dos pais do noivo." },
-        { "hora": "10:07h", "descricao": "Entrada dos pais da noiva." },
-        { "hora": "10:10h", "descricao": "Entrada do noivo acompanhado da mãe." },
+        { "hora": "10:07h", "descricao": "Entrada da mãe da noiva acompanhada pelo padrinho do noivo." },
+        { "hora": "10:10h", "descricao": "Entrada do noivo acompanhado da tia Francisca Lucia." },
         { "hora": "10:12h", "descricao": "Entrada das daminhas e pajens." },
         { "hora": "10:15h", "descricao": "Entrada da noiva acompanhada do pai." },
         { "hora": "10:20h", "descricao": "Início da celebração pelo padre." },
