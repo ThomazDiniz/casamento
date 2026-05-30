@@ -203,7 +203,7 @@
 
     /* ── PRESENTE ──────────────────────────────────────────────── */
     #presente {
-      background: var(--olive-deep);
+      background: var(--cream-warm);
       padding: 7rem 2rem;
       text-align: center;
     }
@@ -213,26 +213,26 @@
     }
     .presente-eyebrow {
       font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--olive-light); margin-bottom: 0.8rem;
+      color: var(--olive-mid); margin-bottom: 0.8rem;
     }
     .presente-heading {
       font-family: var(--serif);
       font-style: italic;
       font-size: clamp(2rem, 4vw, 2.8rem);
       font-weight: 300;
-      color: var(--white);
+      color: var(--olive-dark);
       line-height: 1.2;
       margin-bottom: 1rem;
     }
     .presente-rule {
-      width: 40px; height: 1px; background: var(--olive-accent);
+      width: 40px; height: 1px; background: var(--olive-light);
       margin: 0 auto 2.5rem;
     }
     .presente-texto {
       font-family: var(--serif);
       font-size: clamp(1rem, 2vw, 1.15rem);
       font-weight: 300;
-      color: rgba(221,224,204,.85);
+      color: var(--text-mid);
       line-height: 1.9;
       margin-bottom: 3rem;
     }
@@ -240,65 +240,65 @@
       display: inline-flex;
       align-items: center;
       gap: 1.25rem;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(173,181,148,.4);
+      background: var(--white);
+      border: 1px solid var(--olive-pale);
       padding: 1.1rem 1.75rem;
       cursor: pointer;
-      transition: background .25s, border-color .25s;
+      transition: background .25s, border-color .25s, box-shadow .25s;
       max-width: 100%;
     }
-    .pix-box:hover { background: rgba(255,255,255,.11); border-color: var(--olive-accent); }
+    .pix-box:hover { border-color: var(--olive-light); box-shadow: 0 4px 16px rgba(61,68,52,.08); }
     .pix-info { text-align: left; }
     .pix-label-text {
       font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--olive-light); margin-bottom: 0.3rem;
+      color: var(--olive-mid); margin-bottom: 0.3rem;
     }
     .pix-key {
       font-family: var(--serif); font-size: 1.2rem;
-      color: var(--white); letter-spacing: 0.04em;
+      color: var(--olive-dark); letter-spacing: 0.04em;
     }
     .pix-copy-btn {
       background: none; border: none; cursor: pointer;
-      color: var(--olive-light);
+      color: var(--olive-accent);
       display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
       font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
       font-family: var(--sans); transition: color .2s;
     }
-    .pix-copy-btn:hover { color: var(--gold-light); }
+    .pix-copy-btn:hover { color: var(--gold); }
     .pix-copy-btn svg { width: 17px; height: 17px; }
     .pix-feedback {
       margin-top: 1rem; font-size: 0.8rem;
-      color: var(--olive-light); font-style: italic;
+      color: var(--olive-mid); font-style: italic;
       opacity: 0; transition: opacity .3s;
     }
     .pix-feedback.show { opacity: 1; }
     .presente-closing {
       margin-top: 2.5rem;
       font-family: var(--serif); font-style: italic;
-      font-size: 1rem; color: var(--olive-accent);
+      font-size: 1rem; color: var(--olive-mid);
     }
 
     /* ── RSVP ──────────────────────────────────────────────────── */
     #rsvp {
       padding: 7rem 2rem;
       text-align: center;
-      background: var(--cream-warm);
+      background: var(--olive-deep);
     }
     .rsvp-inner { max-width: 500px; margin: 0 auto; }
     .rsvp-eyebrow {
       font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--olive-mid); margin-bottom: 0.8rem;
+      color: var(--olive-light); margin-bottom: 0.8rem;
     }
     .rsvp-heading {
       font-family: var(--serif);
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      font-weight: 300; color: var(--olive-dark); line-height: 1.2; margin-bottom: 1rem;
+      font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 1rem;
     }
     .rsvp-rule {
-      width: 40px; height: 1px; background: var(--olive-light); margin: 0 auto 2.5rem;
+      width: 40px; height: 1px; background: var(--olive-accent); margin: 0 auto 2.5rem;
     }
     .rsvp-desc {
-      font-size: 1rem; color: var(--text-mid);
+      font-size: 1rem; color: rgba(221,224,204,.8);
       line-height: 1.8; max-width: 420px; margin: 0 auto;
     }
 
