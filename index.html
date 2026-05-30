@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thomaz & Joana · 10.10.2026</title>
+  <title>Joana & Thomaz · 10.10.2026</title>
   <link rel="canonical" href="https://thomazdiniz.github.io/casamento/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -87,7 +87,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 7rem 2rem 5rem;
+      padding: 4rem 2rem 5rem;
       background:
         radial-gradient(ellipse 80% 60% at 50% -10%, rgba(93,103,72,.13) 0%, transparent 65%),
         radial-gradient(ellipse 50% 70% at 90% 110%, rgba(61,68,52,.09) 0%, transparent 55%),
@@ -240,127 +240,95 @@
       margin-bottom: 3rem;
     }
 
-    /* LOCAL CARDS */
-    .locais-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+    /* CITAÇÃO BÍBLICA */
+    .biblia {
+      background: var(--cream-dark);
+      text-align: center;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--olive-pale);
+      border-bottom: 1px solid var(--olive-pale);
     }
-    @media (max-width: 600px) {
-      .locais-grid { grid-template-columns: 1fr; }
-      nav { gap: 1.5rem; }
-      .nav-mono { display: none; }
+    .biblia blockquote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+      font-weight: 300;
+      color: var(--olive-dark);
+      line-height: 1.75;
+      max-width: 620px;
+      margin: 0 auto 1.25rem;
     }
-    .local-card {
-      background: var(--white);
-      border: 1px solid var(--olive-pale);
-      padding: 2.25rem 2rem;
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow .25s, transform .25s;
-    }
-    .local-card:hover {
-      box-shadow: 0 12px 40px rgba(61,68,52,.09);
-      transform: translateY(-2px);
-    }
-    .local-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 2px; height: 100%;
-      background: linear-gradient(to bottom, var(--olive), var(--olive-light));
-    }
-    .local-tag {
-      font-size: 0.62rem;
+    .biblia cite {
+      font-size: 0.68rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--olive-mid);
-      margin-bottom: 0.9rem;
+      font-style: normal;
     }
-    .local-nome {
-      font-family: var(--serif);
-      font-size: 1.45rem;
-      font-weight: 400;
-      color: var(--olive-dark);
-      line-height: 1.2;
-      margin-bottom: 0.3rem;
-    }
-    .local-hora {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--olive);
-      letter-spacing: 0.05em;
-      margin-bottom: 0.7rem;
-    }
-    .local-desc {
-      font-size: 0.9rem;
-      color: var(--text-mid);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-    .local-address {
-      font-size: 0.82rem;
-      color: var(--olive-mid);
-      margin-bottom: 1.4rem;
-      line-height: 1.5;
-    }
-    .btn-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--olive-dark);
-      text-decoration: none;
-      border-bottom: 1px solid var(--olive-light);
-      padding-bottom: 2px;
-      margin-right: 1.2rem;
-      transition: color .2s, border-color .2s;
-    }
-    .btn-link:hover { color: var(--gold); border-color: var(--gold); }
-    .btn-link svg { width: 13px; height: 13px; flex-shrink: 0; }
 
-    /* PRESENTE */
-    #presente { background: var(--olive-dark); }
-    #presente .section-wrap { text-align: center; }
-    #presente .section-eyebrow { color: var(--olive-light); }
-    #presente .section-heading { color: var(--white); font-style: italic; }
-    #presente .section-rule { background: var(--olive-mid); margin: 0 auto 2.5rem; }
-    .presente-intro {
+    /* TRIPLICE GRID */
+    .triple-section {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+    @media (max-width: 720px) {
+      .triple-section { grid-template-columns: 1fr; }
+    }
+
+    /* BOX PRESENTE */
+    .presente-box {
+      background: var(--olive-dark);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .presente-box .section-eyebrow { color: var(--olive-light); }
+    .presente-box .box-heading {
       font-family: var(--serif);
-      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.5rem;
+      color: var(--white);
+      line-height: 1.3;
+    }
+    .presente-box .box-text {
+      font-family: var(--serif);
+      font-size: 0.95rem;
       font-weight: 300;
       color: var(--olive-pale);
-      line-height: 1.85;
-      max-width: 500px;
-      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+      flex: 1;
     }
     .pix-box {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1rem;
       background: rgba(255,255,255,.06);
       border: 1px solid var(--olive-mid);
-      padding: 1.1rem 1.75rem;
+      padding: 0.9rem 1.25rem;
       cursor: pointer;
       transition: background .2s;
     }
     .pix-box:hover { background: rgba(255,255,255,.11); }
     .pix-label-text {
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--olive-light);
-      margin-bottom: 0.3rem;
-      text-align: left;
+      margin-bottom: 0.25rem;
     }
     .pix-key {
       font-family: var(--serif);
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       color: var(--white);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
     }
     .pix-copy-btn {
       background: none;
@@ -370,31 +338,126 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.3rem;
-      font-size: 0.6rem;
+      gap: 0.25rem;
+      font-size: 0.58rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       transition: color .2s;
       font-family: var(--sans);
+      margin-left: auto;
     }
     .pix-copy-btn:hover { color: #c9a84c; }
-    .pix-copy-btn svg { width: 18px; height: 18px; }
+    .pix-copy-btn svg { width: 16px; height: 16px; }
     .pix-feedback {
-      margin-top: 1rem;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--olive-light);
       font-style: italic;
       opacity: 0;
       transition: opacity .3s;
+      margin-top: 0.5rem;
     }
     .pix-feedback.show { opacity: 1; }
     .gifts-closing {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--olive-mid);
-      margin-top: 2rem;
     }
+
+    /* RADIAL CARDS */
+    .radial-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 1.5rem;
+      padding: 2.5rem 1.5rem;
+      border: 1px solid var(--olive-pale);
+      background: var(--white);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow .25s, transform .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .radial-card:hover {
+      box-shadow: 0 12px 40px rgba(61,68,52,.1);
+      transform: translateY(-3px);
+    }
+    .radial-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--olive), var(--olive-light));
+      transform: scaleX(0);
+      transition: transform .3s ease;
+    }
+    .radial-card:hover::after { transform: scaleX(1); }
+
+    .radial-circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 1px solid var(--olive-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: var(--cream);
+      transition: border-color .25s, background .25s;
+    }
+    .radial-card:hover .radial-circle {
+      border-color: var(--olive-light);
+      background: var(--olive-pale);
+    }
+    .radial-circle svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--olive-mid);
+      fill: none;
+      transition: stroke .25s;
+    }
+    .radial-card:hover .radial-circle svg { stroke: var(--olive-dark); }
+
+    .radial-tag {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--olive-mid);
+      margin-bottom: 0.3rem;
+    }
+    .radial-nome {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--olive-dark);
+      line-height: 1.25;
+      margin-bottom: 0.3rem;
+    }
+    .radial-hora {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--olive);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .radial-address {
+      font-size: 0.78rem;
+      color: var(--olive-mid);
+      line-height: 1.5;
+    }
+    .radial-cta {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--olive-dark);
+      border-bottom: 1px solid var(--olive-light);
+      padding-bottom: 2px;
+      transition: color .2s, border-color .2s;
+    }
+    .radial-card:hover .radial-cta { color: var(--gold); border-color: var(--gold); }
 
     /* RSVP */
     #rsvp .section-wrap { text-align: center; }
@@ -465,19 +528,13 @@
 </head>
 <body>
 
-<nav>
-  <a href="#locais">Locais</a>
-  <span class="nav-mono">T &amp; J</span>
-  <a href="#rsvp">Confirmar presença</a>
-</nav>
-
 <!-- HERO -->
 <section id="hero">
   <p class="hero-pre">Convidamos com alegria</p>
   <h1 class="hero-names">
-    Thomaz
-    <span class="hero-amp">&amp;</span>
     Joana
+    <span class="hero-amp">&amp;</span>
+    Thomaz
   </h1>
   <div class="hero-rule"><div class="hero-rule-dot"></div></div>
   <p class="hero-date">10 · Outubro · 2026 &nbsp;·&nbsp; Sábado</p>
@@ -501,76 +558,86 @@
 
 <div class="full-divider"></div>
 
-<!-- LOCAIS -->
-<section id="locais">
-  <div class="section-wrap reveal">
-    <p class="section-eyebrow">Onde &amp; quando</p>
-    <h2 class="section-heading">Os Locais</h2>
-    <p class="section-sub">João Pessoa · Paraíba</p>
-    <div class="section-rule"></div>
-
-    <div class="locais-grid">
-      <div class="local-card reveal reveal-d1">
-        <p class="local-tag">Cerimônia Religiosa</p>
-        <h3 class="local-nome">Paróquia Santo Antônio de Lisboa</h3>
-        <p class="local-hora">09:00h · Tambaú</p>
-        <p class="local-desc">Igreja à beira-mar no bairro de Tambaú, com fácil acesso e estacionamento na região. Ponto de encontro clássico para celebrações em João Pessoa.</p>
-        <p class="local-address">Av. Olinda — Tambaú, João Pessoa - PB</p>
-        <a class="btn-link" href="https://www.google.com/maps/place/Par%C3%B3quia+Santo+Ant%C3%B4nio+de+Lisboa/data=!4m2!3m1!1s0x0:0xa18129106e3074ca?sa=X&ved=1t:2428&ictx=111" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-          Maps
-        </a>
-        <a class="btn-link" href="https://www.instagram.com/psaltambau/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          Instagram
-        </a>
-      </div>
-
-      <div class="local-card reveal reveal-d2">
-        <p class="local-tag">Recepção</p>
-        <h3 class="local-nome">Sal e Brasa João Pessoa</h3>
-        <p class="local-hora">11:30h · Cabo Branco</p>
-        <p class="local-desc">Churrascaria em Cabo Branco, ambiente amplo e vista para o mar em boa parte do salão — ideal para confraternizar após a cerimônia.</p>
-        <p class="local-address">Av. Cabo Branco, 1830 — Cabo Branco, João Pessoa - PB</p>
-        <a class="btn-link" href="https://www.google.com/maps/place/Sal+e+Brasa+Jo%C3%A3o+Pessoa/data=!4m2!3m1!1s0x0:0xfad360b52cdc7291?sa=X&ved=1t:2428&ictx=111" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
-          Maps
-        </a>
-        <a class="btn-link" href="https://www.instagram.com/salebrasa.joaopessoa/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          Instagram
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- CITAÇÃO BÍBLICA -->
+<div class="biblia reveal">
+  <blockquote>
+    "Por isso o homem deixará pai e mãe e se unirá à sua mulher,<br />
+    e os dois serão uma só carne.<br />
+    Portanto, o que Deus uniu, o homem não separe."
+  </blockquote>
+  <cite>Mateus 19 · 5–6</cite>
+</div>
 
 <div class="full-divider"></div>
 
-<!-- PRESENTE -->
-<div id="presente">
-  <div class="section-wrap reveal">
-    <p class="section-eyebrow">Presente</p>
-    <h2 class="section-heading">Sua presença é o nosso maior presente</h2>
-    <div class="section-rule"></div>
-    <p class="presente-intro">
+<!-- GRADE TRIPLA: Presente · Cerimônia · Recepção -->
+<div class="triple-section reveal">
+
+  <!-- PRESENTE -->
+  <div class="presente-box reveal">
+    <div>
+      <p class="section-eyebrow">Presente</p>
+      <p class="box-heading">Sua presença é o nosso maior presente</p>
+    </div>
+    <p class="box-text">
       O maior presente é celebrar com vocês.<br />
-      Mas se quiserem contribuir de outra forma,<br />
+      Mas se quiserem contribuir de outra forma,
       ficaremos muito gratos por qualquer gesto.
     </p>
-    <div class="pix-box" onclick="copiarPix()">
-      <div>
-        <p class="pix-label-text">Chave Pix</p>
-        <p class="pix-key" id="pix-key">PLACEHOLDER_PIX</p>
+    <div>
+      <div class="pix-box" onclick="copiarPix()">
+        <div>
+          <p class="pix-label-text">Chave Pix</p>
+          <p class="pix-key" id="pix-key">PLACEHOLDER_PIX</p>
+        </div>
+        <button class="pix-copy-btn" title="Copiar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
       </div>
-      <button class="pix-copy-btn" title="Copiar">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        Copiar
-      </button>
+      <p class="pix-feedback" id="pix-feedback">✓ Chave copiada!</p>
     </div>
-    <p class="pix-feedback" id="pix-feedback">✓ Chave copiada!</p>
-    <p class="gifts-closing">Thomaz e Joana agradecem de coração.</p>
+    <p class="gifts-closing">Joana e Thomaz agradecem de coração.</p>
   </div>
+
+  <!-- CERIMÔNIA -->
+  <a class="radial-card reveal reveal-d1"
+     href="https://www.google.com/maps/place/Par%C3%B3quia+Santo+Ant%C3%B4nio+de+Lisboa/data=!4m2!3m1!1s0x0:0xa18129106e3074ca?sa=X&ved=1t:2428&ictx=111"
+     target="_blank" rel="noopener">
+    <div class="radial-circle">
+      <svg viewBox="0 0 24 24" stroke-width="1.4">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+        <circle cx="12" cy="9" r="2.5"/>
+        <path d="M9 2.5 Q12 1 15 2.5" stroke-width="1" stroke-dasharray="1.5 1.5"/>
+      </svg>
+    </div>
+    <div>
+      <p class="radial-tag">Cerimônia Religiosa</p>
+      <p class="radial-nome">Paróquia Santo Antônio de Lisboa</p>
+      <p class="radial-hora">09:00h · Sábado, 10 out.</p>
+      <p class="radial-address">Av. Olinda — Tambaú<br />João Pessoa · PB</p>
+    </div>
+    <span class="radial-cta">Ver no Maps ↗</span>
+  </a>
+
+  <!-- RECEPÇÃO -->
+  <a class="radial-card reveal reveal-d2"
+     href="https://www.google.com/maps/place/Sal+e+Brasa+Jo%C3%A3o+Pessoa/data=!4m2!3m1!1s0x0:0xfad360b52cdc7291?sa=X&ved=1t:2428&ictx=111"
+     target="_blank" rel="noopener">
+    <div class="radial-circle">
+      <svg viewBox="0 0 24 24" stroke-width="1.4">
+        <path d="M3 11l19-9-9 19-2-8-8-2z"/>
+      </svg>
+    </div>
+    <div>
+      <p class="radial-tag">Recepção</p>
+      <p class="radial-nome">Sal e Brasa João Pessoa</p>
+      <p class="radial-hora">11:30h · Sábado, 10 out.</p>
+      <p class="radial-address">Av. Cabo Branco, 1830<br />João Pessoa · PB</p>
+    </div>
+    <span class="radial-cta">Ver no Maps ↗</span>
+  </a>
+
 </div>
 
 <div class="full-divider"></div>
@@ -581,14 +648,13 @@
     <p class="section-eyebrow">Confirmação</p>
     <h2 class="section-heading">Confirme sua presença</h2>
     <div class="section-rule"></div>
-    <p class="rsvp-desc">Confirme sua presença pelo formulário abaixo. Sua resposta nos ajuda muito na organização.</p>
-    <a class="btn-primary" href="https://forms.gle/COLOQUE_SEU_LINK_DO_GOOGLE_FORMS_AQUI" target="_blank" rel="noopener">Confirmar presença</a>
+    <p class="rsvp-desc">Para confirmar sua presença, entre em contato diretamente com os noivos pelo WhatsApp. Sua confirmação nos ajuda muito na organização — e mal podemos esperar para celebrar com você.</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p class="footer-names">Thomaz &amp; Joana</p>
+  <p class="footer-names">Joana &amp; Thomaz</p>
   <p class="footer-date">10 de outubro de 2026 · João Pessoa</p>
 </footer>
 
