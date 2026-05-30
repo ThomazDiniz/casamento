@@ -12,16 +12,21 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --olive-dark:  #3d4434;
-      --olive:       #5e6648;
-      --olive-mid:   #7d8660;
-      --olive-light: #b8bea0;
-      --olive-pale:  #e4e6d4;
-      --cream:       #f6f4ec;
-      --white:       #ffffff;
-      --text-dark:   #2a2a2a;
-      --text-mid:    #5a5a5a;
-      --gold:        #a8883c;
+      --olive-dark:   #2e3328;
+      --olive-deep:   #3d4434;
+      --olive:        #546044;
+      --olive-mid:    #6a7252;
+      --olive-accent: #8a9470;
+      --olive-light:  #adb594;
+      --olive-pale:   #dde0cc;
+      --cream:        #f4f1e8;
+      --cream-warm:   #ede9dc;
+      --white:        #ffffff;
+      --text-dark:    #1e1e1e;
+      --text-body:    #3a3a3a;
+      --text-mid:     #555;
+      --gold:         #9a7a2e;
+      --gold-light:   #b89240;
       --serif: 'Cormorant Garamond', Georgia, serif;
       --sans:  'Jost', system-ui, sans-serif;
     }
@@ -30,56 +35,13 @@
     body {
       font-family: var(--sans);
       background: var(--cream);
-      color: var(--text-dark);
+      color: var(--text-body);
       font-size: 16px;
       line-height: 1.7;
       overflow-x: hidden;
     }
 
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-      padding: 1.1rem 2rem;
-      background: rgba(246,244,236,0.94);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--olive-pale);
-    }
-    nav a {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--olive-dark);
-      text-decoration: none;
-      position: relative;
-      transition: color .2s;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px; left: 0; right: 0;
-      height: 1px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform .25s ease;
-    }
-    nav a:hover { color: var(--gold); }
-    nav a:hover::after { transform: scaleX(1); }
-    .nav-mono {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1.1rem;
-      color: var(--olive-mid);
-      pointer-events: none;
-    }
-
-    /* HERO */
+    /* ── HERO ──────────────────────────────────────────────────── */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -87,15 +49,28 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 4rem 2rem 5rem;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(93,103,72,.13) 0%, transparent 65%),
-        radial-gradient(ellipse 50% 70% at 90% 110%, rgba(61,68,52,.09) 0%, transparent 55%),
-        var(--cream);
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
     }
+
+    /* Parallax layer behind content */
+    #hero-bg {
+      position: absolute;
+      inset: -15%;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 5%,  rgba(84,96,68,.22) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 65% at 85% 95%, rgba(46,51,40,.16) 0%, transparent 55%),
+        radial-gradient(ellipse 35% 40% at 10% 80%, rgba(107,118,82,.10) 0%, transparent 50%),
+        var(--cream);
+      will-change: transform;
+    }
+
+    #hero > * { position: relative; z-index: 1; }
+
     .hero-pre {
       font-size: 0.68rem;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--olive-mid);
       margin-bottom: 2.5rem;
@@ -103,52 +78,50 @@
     .hero-names {
       font-family: var(--serif);
       font-weight: 300;
-      font-size: clamp(3.5rem, 9vw, 6.5rem);
+      font-size: clamp(3.5rem, 10vw, 7rem);
       color: var(--olive-dark);
       line-height: 1;
+      letter-spacing: -0.01em;
     }
     .hero-amp {
       display: block;
       font-style: italic;
-      font-size: clamp(4rem, 10vw, 7.5rem);
-      color: var(--olive-mid);
-      line-height: 0.85;
-      margin: 0.1em 0;
+      font-size: clamp(4rem, 11vw, 8rem);
+      color: var(--olive-accent);
+      line-height: 0.82;
+      margin: 0.08em 0;
     }
     .hero-rule {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.9rem;
       margin: 2.5rem auto;
-      width: 220px;
+      width: 200px;
     }
     .hero-rule::before, .hero-rule::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--olive-light);
+      content: ''; flex: 1; height: 1px; background: var(--olive-light);
     }
-    .hero-rule-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--olive-mid); }
+    .hero-rule-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--olive-accent); }
     .hero-date {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 300;
-      letter-spacing: 0.32em;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--olive);
     }
     .hero-tagline {
-      margin-top: 1.4rem;
+      margin-top: 1.25rem;
       font-family: var(--serif);
       font-style: italic;
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
       color: var(--olive-mid);
       font-weight: 300;
     }
 
-    /* HERO LOCAIS */
+    /* Radial location circles */
     .hero-locais {
       display: flex;
-      gap: 3.5rem;
+      gap: clamp(2rem, 6vw, 5rem);
       margin-top: 3.5rem;
       justify-content: center;
       flex-wrap: wrap;
@@ -157,418 +130,255 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.1rem;
+      gap: 0.9rem;
       text-decoration: none;
       color: inherit;
     }
     .hero-local-circle {
-      width: 110px;
-      height: 110px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       border: 1px solid var(--olive-light);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: transparent;
-      transition: border-color .25s, background .25s, transform .25s;
+      transition: border-color .3s, background .3s, transform .3s, box-shadow .3s;
     }
     .hero-local-link:hover .hero-local-circle {
       border-color: var(--olive);
-      background: rgba(184,190,160,.15);
-      transform: scale(1.06);
+      background: rgba(173,181,148,.15);
+      transform: scale(1.08);
+      box-shadow: 0 8px 28px rgba(46,51,40,.12);
     }
     .hero-local-circle svg {
-      width: 34px;
-      height: 34px;
-      stroke: var(--olive-mid);
-      fill: none;
-      stroke-width: 1.4;
-      transition: stroke .25s;
+      width: 30px; height: 30px;
+      stroke: var(--olive-accent); fill: none; stroke-width: 1.5;
+      transition: stroke .3s;
     }
-    .hero-local-link:hover .hero-local-circle svg { stroke: var(--olive-dark); }
+    .hero-local-link:hover .hero-local-circle svg { stroke: var(--olive-deep); }
     .hero-local-tag {
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--olive-mid);
-      margin-bottom: 0.15rem;
-      text-align: center;
+      font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--olive-mid); text-align: center;
     }
     .hero-local-name {
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--olive-dark);
-      text-align: center;
-      line-height: 1.3;
-      max-width: 140px;
+      font-family: var(--serif); font-size: 0.95rem; font-weight: 400;
+      color: var(--olive-dark); text-align: center; line-height: 1.3; max-width: 130px;
     }
     .hero-local-hora {
-      font-size: 0.72rem;
-      color: var(--olive);
-      letter-spacing: 0.06em;
-      font-weight: 500;
+      font-size: 0.7rem; color: var(--olive); letter-spacing: 0.07em; font-weight: 500;
     }
     .hero-local-cta {
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--olive-light);
-      border-bottom: 1px solid var(--olive-pale);
-      padding-bottom: 1px;
-      transition: color .2s, border-color .2s;
+      font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--olive-light); border-bottom: 1px solid var(--olive-pale);
+      padding-bottom: 1px; transition: color .2s, border-color .2s;
     }
-    .hero-local-link:hover .hero-local-cta { color: var(--gold); border-color: var(--gold); }
+    .hero-local-link:hover .hero-local-cta { color: var(--gold); border-color: var(--gold-light); }
 
     .scroll-cue {
-      margin-top: 4.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      color: var(--olive-light);
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      animation: bob 2.2s ease-in-out infinite;
+      margin-top: 4rem;
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      color: var(--olive-light); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+      animation: bob 2.4s ease-in-out infinite;
     }
-    .scroll-cue svg { width: 18px; height: 18px; stroke: var(--olive-light); fill: none; }
+    .scroll-cue svg { width: 16px; height: 16px; stroke: var(--olive-light); fill: none; }
     @keyframes bob {
-      0%, 100% { transform: translateY(0); opacity: .5; }
-      50%       { transform: translateY(7px); opacity: .9; }
+      0%, 100% { transform: translateY(0); opacity: .45; }
+      50%       { transform: translateY(6px); opacity: .85; }
     }
 
-    .full-divider {
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--olive-pale), transparent);
-    }
-
-    /* SECTIONS */
-    .section-wrap {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 6rem 2rem;
-    }
-    .section-eyebrow {
-      font-size: 0.65rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--olive-mid);
-      margin-bottom: 0.6rem;
-    }
-    .section-heading {
-      font-family: var(--serif);
-      font-size: clamp(1.9rem, 3.5vw, 2.6rem);
-      font-weight: 300;
-      color: var(--olive-dark);
-      line-height: 1.15;
-      margin-bottom: 0.6rem;
-    }
-    .section-sub {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 1rem;
-      color: var(--olive-mid);
-      margin-bottom: 2.5rem;
-    }
-    .section-rule {
-      width: 40px;
-      height: 1px;
-      background: var(--olive-light);
-      margin-bottom: 3rem;
-    }
-
-    /* CITAÇÃO BÍBLICA */
-    .biblia {
-      background: var(--cream-dark);
-      text-align: center;
-      padding: 4rem 2rem;
-      border-top: 1px solid var(--olive-pale);
-      border-bottom: 1px solid var(--olive-pale);
-    }
-    .biblia blockquote {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: clamp(1.1rem, 2.5vw, 1.45rem);
-      font-weight: 300;
-      color: var(--olive-dark);
-      line-height: 1.75;
-      max-width: 620px;
-      margin: 0 auto 1.25rem;
-    }
-    .biblia cite {
-      font-size: 0.68rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--olive-mid);
-      font-style: normal;
-    }
-
-    /* TRIPLICE GRID */
-    .triple-section {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 5rem 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
-      align-items: stretch;
-    }
-    @media (max-width: 720px) {
-      .triple-section { grid-template-columns: 1fr; }
-    }
-
-    /* BOX PRESENTE */
-    .presente-box {
-      background: var(--olive-dark);
-      padding: 2.5rem 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
-    .presente-box .section-eyebrow { color: var(--olive-light); }
-    .presente-box .box-heading {
-      font-family: var(--serif);
-      font-style: italic;
-      font-weight: 300;
-      font-size: 1.5rem;
-      color: var(--white);
-      line-height: 1.3;
-    }
-    .presente-box .box-text {
-      font-family: var(--serif);
-      font-size: 0.95rem;
-      font-weight: 300;
-      color: var(--olive-pale);
-      line-height: 1.8;
-      flex: 1;
-    }
-    .pix-box {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      background: rgba(255,255,255,.06);
-      border: 1px solid var(--olive-mid);
-      padding: 0.9rem 1.25rem;
-      cursor: pointer;
-      transition: background .2s;
-    }
-    .pix-box:hover { background: rgba(255,255,255,.11); }
-    .pix-label-text {
-      font-size: 0.58rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--olive-light);
-      margin-bottom: 0.25rem;
-    }
-    .pix-key {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      color: var(--white);
-      letter-spacing: 0.03em;
-    }
-    .pix-copy-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--olive-light);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
-      font-size: 0.58rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color .2s;
-      font-family: var(--sans);
-      margin-left: auto;
-    }
-    .pix-copy-btn:hover { color: #c9a84c; }
-    .pix-copy-btn svg { width: 16px; height: 16px; }
-    .pix-feedback {
-      font-size: 0.75rem;
-      color: var(--olive-light);
-      font-style: italic;
-      opacity: 0;
-      transition: opacity .3s;
-      margin-top: 0.5rem;
-    }
-    .pix-feedback.show { opacity: 1; }
-    .gifts-closing {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 0.9rem;
-      color: var(--olive-mid);
-    }
-
-    /* RADIAL CARDS */
-    .radial-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      gap: 1.5rem;
-      padding: 2.5rem 1.5rem;
-      border: 1px solid var(--olive-pale);
-      background: var(--white);
-      text-decoration: none;
-      color: inherit;
-      transition: box-shadow .25s, transform .25s;
+    /* ── BIBLIA PARALLAX ───────────────────────────────────────── */
+    .biblia-wrap {
       position: relative;
       overflow: hidden;
     }
-    .radial-card:hover {
-      box-shadow: 0 12px 40px rgba(61,68,52,.1);
-      transform: translateY(-3px);
-    }
-    .radial-card::after {
-      content: '';
+    .biblia-bg {
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(to right, var(--olive), var(--olive-light));
-      transform: scaleX(0);
-      transition: transform .3s ease;
+      inset: -20%;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(61,68,52,.95) 0%, rgba(46,51,40,.98) 100%);
+      will-change: transform;
     }
-    .radial-card:hover::after { transform: scaleX(1); }
-
-    .radial-circle {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 1px solid var(--olive-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .biblia-content {
       position: relative;
-      background: var(--cream);
-      transition: border-color .25s, background .25s;
-    }
-    .radial-card:hover .radial-circle {
-      border-color: var(--olive-light);
-      background: var(--olive-pale);
-    }
-    .radial-circle svg {
-      width: 36px;
-      height: 36px;
-      stroke: var(--olive-mid);
-      fill: none;
-      transition: stroke .25s;
-    }
-    .radial-card:hover .radial-circle svg { stroke: var(--olive-dark); }
-
-    .radial-tag {
-      font-size: 0.62rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--olive-mid);
-      margin-bottom: 0.3rem;
-    }
-    .radial-nome {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--olive-dark);
-      line-height: 1.25;
-      margin-bottom: 0.3rem;
-    }
-    .radial-hora {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--olive);
-      letter-spacing: 0.06em;
-      margin-bottom: 0.5rem;
-    }
-    .radial-address {
-      font-size: 0.78rem;
-      color: var(--olive-mid);
-      line-height: 1.5;
-    }
-    .radial-cta {
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--olive-dark);
-      border-bottom: 1px solid var(--olive-light);
-      padding-bottom: 2px;
-      transition: color .2s, border-color .2s;
-    }
-    .radial-card:hover .radial-cta { color: var(--gold); border-color: var(--gold); }
-
-    /* RSVP */
-    #rsvp .section-wrap { text-align: center; }
-    .rsvp-desc {
-      font-size: 1rem;
-      color: var(--text-mid);
-      max-width: 420px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.7;
-    }
-    .btn-primary {
-      display: inline-block;
-      padding: 0.9rem 2.75rem;
-      background: var(--olive-dark);
-      color: var(--cream);
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: background .2s, transform .2s, box-shadow .2s;
-    }
-    .btn-primary:hover {
-      background: var(--olive);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(61,68,52,.18);
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--olive-dark);
-      border-top: 1px solid rgba(255,255,255,.06);
+      z-index: 1;
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 6rem 2rem;
     }
-    .footer-names {
+    .biblia-content blockquote {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 1.4rem;
-      color: var(--white);
+      font-size: clamp(1.15rem, 2.8vw, 1.55rem);
       font-weight: 300;
-      margin-bottom: 0.5rem;
+      color: rgba(244,241,232,.9);
+      line-height: 1.8;
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+    }
+    .biblia-content blockquote::before {
+      content: '\201C';
+      display: block;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--olive-accent);
+      margin-bottom: 0.25rem;
+      font-style: normal;
+    }
+    .biblia-content cite {
+      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--olive-light); font-style: normal;
+    }
+
+    /* ── PRESENTE ──────────────────────────────────────────────── */
+    #presente {
+      background: var(--olive-deep);
+      padding: 7rem 2rem;
+      text-align: center;
+    }
+    .presente-inner {
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .presente-eyebrow {
+      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--olive-light); margin-bottom: 0.8rem;
+    }
+    .presente-heading {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .presente-rule {
+      width: 40px; height: 1px; background: var(--olive-accent);
+      margin: 0 auto 2.5rem;
+    }
+    .presente-texto {
+      font-family: var(--serif);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: rgba(221,224,204,.85);
+      line-height: 1.9;
+      margin-bottom: 3rem;
+    }
+    .pix-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(173,181,148,.4);
+      padding: 1.1rem 1.75rem;
+      cursor: pointer;
+      transition: background .25s, border-color .25s;
+      max-width: 100%;
+    }
+    .pix-box:hover { background: rgba(255,255,255,.11); border-color: var(--olive-accent); }
+    .pix-info { text-align: left; }
+    .pix-label-text {
+      font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--olive-light); margin-bottom: 0.3rem;
+    }
+    .pix-key {
+      font-family: var(--serif); font-size: 1.2rem;
+      color: var(--white); letter-spacing: 0.04em;
+    }
+    .pix-copy-btn {
+      background: none; border: none; cursor: pointer;
+      color: var(--olive-light);
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+      font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-family: var(--sans); transition: color .2s;
+    }
+    .pix-copy-btn:hover { color: var(--gold-light); }
+    .pix-copy-btn svg { width: 17px; height: 17px; }
+    .pix-feedback {
+      margin-top: 1rem; font-size: 0.8rem;
+      color: var(--olive-light); font-style: italic;
+      opacity: 0; transition: opacity .3s;
+    }
+    .pix-feedback.show { opacity: 1; }
+    .presente-closing {
+      margin-top: 2.5rem;
+      font-family: var(--serif); font-style: italic;
+      font-size: 1rem; color: var(--olive-accent);
+    }
+
+    /* ── RSVP ──────────────────────────────────────────────────── */
+    #rsvp {
+      padding: 7rem 2rem;
+      text-align: center;
+      background: var(--cream-warm);
+    }
+    .rsvp-inner { max-width: 500px; margin: 0 auto; }
+    .rsvp-eyebrow {
+      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--olive-mid); margin-bottom: 0.8rem;
+    }
+    .rsvp-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 300; color: var(--olive-dark); line-height: 1.2; margin-bottom: 1rem;
+    }
+    .rsvp-rule {
+      width: 40px; height: 1px; background: var(--olive-light); margin: 0 auto 2.5rem;
+    }
+    .rsvp-desc {
+      font-size: 1rem; color: var(--text-mid);
+      line-height: 1.8; max-width: 420px; margin: 0 auto;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────────────── */
+    footer {
+      background: var(--olive-dark);
+      text-align: center;
+      padding: 3rem 1rem;
+      border-top: 1px solid rgba(255,255,255,.05);
+    }
+    .footer-names {
+      font-family: var(--serif); font-style: italic; font-size: 1.4rem;
+      color: rgba(244,241,232,.9); font-weight: 300; margin-bottom: 0.5rem;
     }
     .footer-date {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
       color: var(--olive-light);
     }
-    .footer-url {
-      margin-top: 1.25rem;
-      font-size: 0.68rem;
-      color: var(--olive-mid);
-    }
-    .footer-url a { color: inherit; text-decoration: none; }
-    .footer-url a:hover { color: var(--olive-light); }
 
-    /* REVEAL */
+    /* ── DIVIDER ───────────────────────────────────────────────── */
+    .full-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(to right, transparent, var(--olive-pale), transparent);
+    }
+
+    /* ── REVEAL ────────────────────────────────────────────────── */
     .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity .7s ease, transform .7s ease;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .75s ease, transform .75s ease;
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal-d1 { transition-delay: .12s; }
-    .reveal-d2 { transition-delay: .26s; }
+    .reveal-d1 { transition-delay: .14s; }
+    .reveal-d2 { transition-delay: .28s; }
+
+    /* ── MOBILE ────────────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .hero-locais { gap: 2rem; }
+      .hero-local-circle { width: 86px; height: 86px; }
+      .hero-local-circle svg { width: 26px; height: 26px; }
+      .hero-local-name { font-size: 0.88rem; max-width: 110px; }
+      .biblia-content { padding: 4.5rem 1.5rem; }
+      #presente { padding: 5rem 1.5rem; }
+      #rsvp { padding: 5rem 1.5rem; }
+      .pix-box { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    }
   </style>
 </head>
 <body>
 
 <!-- HERO -->
 <section id="hero">
+  <div id="hero-bg"></div>
+
   <p class="hero-pre">Convidamos com alegria</p>
   <h1 class="hero-names">
     Joana
@@ -611,99 +421,58 @@
   </div>
 </section>
 
-<div class="full-divider"></div>
-
-<!-- CITAÇÃO BÍBLICA -->
-<div class="biblia reveal">
-  <blockquote>
-    "Por isso o homem deixará pai e mãe e se unirá à sua mulher,<br />
-    e os dois serão uma só carne.<br />
-    Portanto, o que Deus uniu, o homem não separe."
-  </blockquote>
-  <cite>Mateus 19 · 5–6</cite>
-</div>
-
-<div class="full-divider"></div>
-
-<!-- GRADE TRIPLA: Presente · Cerimônia · Recepção -->
-<div class="triple-section reveal">
-
-  <!-- PRESENTE -->
-  <div class="presente-box reveal">
-    <div>
-      <p class="section-eyebrow">Presente</p>
-      <p class="box-heading">Sua presença é o nosso maior presente</p>
-    </div>
-    <p class="box-text">
-      O maior presente é celebrar com vocês.<br />
-      Mas se quiserem contribuir de outra forma,
-      ficaremos muito gratos por qualquer gesto.
-    </p>
-    <div>
-      <div class="pix-box" onclick="copiarPix()">
-        <div>
-          <p class="pix-label-text">Chave Pix</p>
-          <p class="pix-key" id="pix-key">PLACEHOLDER_PIX</p>
-        </div>
-        <button class="pix-copy-btn" title="Copiar">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          Copiar
-        </button>
-      </div>
-      <p class="pix-feedback" id="pix-feedback">✓ Chave copiada!</p>
-    </div>
-    <p class="gifts-closing">Joana e Thomaz agradecem de coração.</p>
+<!-- BÍBLIA PARALLAX -->
+<div class="biblia-wrap">
+  <div class="biblia-bg" id="biblia-bg"></div>
+  <div class="biblia-content reveal">
+    <blockquote>
+      Para que todos vejam, e saibam, e considerem,
+      e juntamente entendam que a mão do Senhor fez isto,
+      e o Santo de Israel o criou.
+    </blockquote>
+    <cite>Isaías 41 · 20</cite>
   </div>
-
-  <!-- CERIMÔNIA -->
-  <a class="radial-card reveal reveal-d1"
-     href="https://www.google.com/maps/place/Par%C3%B3quia+Santo+Ant%C3%B4nio+de+Lisboa/data=!4m2!3m1!1s0x0:0xa18129106e3074ca?sa=X&ved=1t:2428&ictx=111"
-     target="_blank" rel="noopener">
-    <div class="radial-circle">
-      <svg viewBox="0 0 24 24" stroke-width="1.4">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-        <circle cx="12" cy="9" r="2.5"/>
-        <path d="M9 2.5 Q12 1 15 2.5" stroke-width="1" stroke-dasharray="1.5 1.5"/>
-      </svg>
-    </div>
-    <div>
-      <p class="radial-tag">Cerimônia Religiosa</p>
-      <p class="radial-nome">Paróquia Santo Antônio de Lisboa</p>
-      <p class="radial-hora">09:00h · Sábado, 10 out.</p>
-      <p class="radial-address">Av. Olinda — Tambaú<br />João Pessoa · PB</p>
-    </div>
-    <span class="radial-cta">Ver no Maps ↗</span>
-  </a>
-
-  <!-- RECEPÇÃO -->
-  <a class="radial-card reveal reveal-d2"
-     href="https://www.google.com/maps/place/Sal+e+Brasa+Jo%C3%A3o+Pessoa/data=!4m2!3m1!1s0x0:0xfad360b52cdc7291?sa=X&ved=1t:2428&ictx=111"
-     target="_blank" rel="noopener">
-    <div class="radial-circle">
-      <svg viewBox="0 0 24 24" stroke-width="1.4">
-        <path d="M3 11l19-9-9 19-2-8-8-2z"/>
-      </svg>
-    </div>
-    <div>
-      <p class="radial-tag">Recepção</p>
-      <p class="radial-nome">Sal e Brasa João Pessoa</p>
-      <p class="radial-hora">11:30h · Sábado, 10 out.</p>
-      <p class="radial-address">Av. Cabo Branco, 1830<br />João Pessoa · PB</p>
-    </div>
-    <span class="radial-cta">Ver no Maps ↗</span>
-  </a>
-
 </div>
+
+<!-- PRESENTE -->
+<section id="presente" class="reveal">
+  <div class="presente-inner">
+    <p class="presente-eyebrow">Presente</p>
+    <h2 class="presente-heading">Sua presença é o nosso maior presente</h2>
+    <div class="presente-rule"></div>
+    <p class="presente-texto">
+      O maior presente é poder celebrar ao lado de quem amamos.<br />
+      Mas se quiserem nos presentear de outra forma,<br />
+      ficaremos de coração cheio por qualquer gesto.
+    </p>
+    <div class="pix-box" onclick="copiarPix()">
+      <div class="pix-info">
+        <p class="pix-label-text">Chave Pix</p>
+        <p class="pix-key" id="pix-key">PLACEHOLDER_PIX</p>
+      </div>
+      <button class="pix-copy-btn" title="Copiar chave">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copiar
+      </button>
+    </div>
+    <p class="pix-feedback" id="pix-feedback">✓ Chave copiada!</p>
+    <p class="presente-closing">Joana e Thomaz agradecem de coração.</p>
+  </div>
+</section>
 
 <div class="full-divider"></div>
 
 <!-- RSVP -->
-<section id="rsvp">
-  <div class="section-wrap reveal">
-    <p class="section-eyebrow">Confirmação</p>
-    <h2 class="section-heading">Confirme sua presença</h2>
-    <div class="section-rule"></div>
-    <p class="rsvp-desc">Para confirmar sua presença, entre em contato diretamente com os noivos pelo WhatsApp. Sua confirmação nos ajuda muito na organização — e mal podemos esperar para celebrar com você.</p>
+<section id="rsvp" class="reveal">
+  <div class="rsvp-inner">
+    <p class="rsvp-eyebrow">Confirmação</p>
+    <h2 class="rsvp-heading">Confirme sua presença</h2>
+    <div class="rsvp-rule"></div>
+    <p class="rsvp-desc">
+      Para confirmar sua presença, entre em contato diretamente com os noivos pelo WhatsApp.
+      Sua confirmação nos ajuda muito na organização —
+      e mal podemos esperar para celebrar com você.
+    </p>
   </div>
 </section>
 
@@ -719,6 +488,24 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Parallax
+  const heroBg   = document.getElementById('hero-bg');
+  const bibliaBg = document.getElementById('biblia-bg');
+
+  function onScroll() {
+    const sy = window.scrollY;
+    // Hero: move bg up at 40% scroll speed
+    heroBg.style.transform = `translateY(${sy * 0.4}px)`;
+    // Biblia: move bg at slower rate relative to its position
+    const bibliaWrap = bibliaBg.parentElement;
+    const bTop = bibliaWrap.getBoundingClientRect().top + sy;
+    const offset = (sy - bTop) * 0.35;
+    bibliaBg.style.transform = `translateY(${offset}px)`;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
   // Copiar Pix
   function copiarPix() {
