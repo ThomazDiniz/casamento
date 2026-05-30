@@ -54,19 +54,13 @@
       overflow: hidden;
     }
 
-    /* Parallax layer behind content */
-    #hero-bg {
-      position: absolute;
-      inset: -15%;
+    #hero {
       background:
         radial-gradient(ellipse 70% 55% at 50% 5%,  rgba(84,96,68,.22) 0%, transparent 65%),
         radial-gradient(ellipse 45% 65% at 85% 95%, rgba(46,51,40,.16) 0%, transparent 55%),
         radial-gradient(ellipse 35% 40% at 10% 80%, rgba(107,118,82,.10) 0%, transparent 50%),
         var(--cream);
-      will-change: transform;
     }
-
-    #hero > * { position: relative; z-index: 1; }
 
     .hero-epigrafe {
       font-family: var(--serif);
@@ -357,8 +351,6 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div id="hero-bg"></div>
-
   <p class="hero-epigrafe">"Para que todos vejam, e saibam, e considerem, e juntamente entendam<br>que a mão do Senhor fez isto, e o Santo de Israel o criou."<br><span>— Isaías 41:20</span></p>
 
   <p class="hero-pre">Convidamos com alegria</p>
@@ -457,18 +449,6 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // Parallax
-  const heroBg = document.getElementById('hero-bg');
-
-  function onScroll() {
-    const sy = window.scrollY;
-    // Hero: move bg up at 40% scroll speed
-    heroBg.style.transform = `translateY(${sy * 0.4}px)`;
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 
   // Copiar Pix
   function copiarPix() {
