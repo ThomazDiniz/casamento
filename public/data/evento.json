@@ -1,0 +1,14 @@
+{
+  "titulo": "Casamento",
+  "noivos": {
+    "noivo": "Thomaz Diniz",
+    "noiva": "Joana"
+  },
+  "dataCerimonia": "10/10/2026 (sábado)",
+  "horaCerimonia": "09:00",
+  "rsvp": {
+    "descricao": "Confirme sua presença pelo formulário (substitua pelo link real do Google Forms).",
+    "url": "https://forms.gle/COLOQUE_SEU_LINK_DO_GOOGLE_FORMS_AQUI"
+  },
+  "mensagem": "A alegria da nossa união fica completa com a sua presença."
+}

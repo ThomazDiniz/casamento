@@ -1,0 +1,80 @@
+{
+  "titulo": "Casamento – Thomaz e Joana",
+  "data": "10/10/2026",
+  "diaSemana": "Sábado",
+  "cerimonia": {
+    "tipo": "Cerimônia católica",
+    "hora": "09:00",
+    "local": "Igreja Santo Antônio de Lisboa – Tambaú"
+  },
+  "recepcao": {
+    "local": "Sal e Brasa"
+  },
+  "observacoesGerais": [
+    "Cerimonial chegar às 08:00h.",
+    "Fotógrafos e demais fornecedores chegar até 08:15h.",
+    "Noivos, pais, padrinhos e pajens chegar até 08:30h.",
+    "Convidados começar a chegar a partir das 08:30h."
+  ],
+  "secoes": [
+    {
+      "titulo": "Cerimônia",
+      "itens": [
+        { "hora": "09:00h", "descricao": "Entrada dos padrinhos." },
+        { "hora": "09:05h", "descricao": "Entrada dos pais do noivo." },
+        { "hora": "09:07h", "descricao": "Entrada dos pais da noiva." },
+        { "hora": "09:10h", "descricao": "Entrada do noivo acompanhado da mãe." },
+        { "hora": "09:12h", "descricao": "Entrada das daminhas e pajens." },
+        { "hora": "09:15h", "descricao": "Entrada da noiva acompanhada do pai." },
+        { "hora": "09:20h", "descricao": "Início da celebração pelo padre." },
+        { "hora": "09:25h", "descricao": "Liturgia da Palavra (leituras, salmo, evangelho e homilia)." },
+        { "hora": "09:50h", "descricao": "Rito do Matrimônio." },
+        { "hora": "09:55h", "descricao": "Troca das alianças." },
+        { "hora": "10:00h", "descricao": "Bênção nupcial." },
+        { "hora": "10:05h", "descricao": "Comunhão Eucarística (caso a celebração seja realizada dentro da Santa Missa)." },
+        { "hora": "10:15h", "descricao": "Assinatura dos documentos pelos noivos e testemunhas." },
+        { "hora": "10:25h", "descricao": "Consagração do casal à Nossa Senhora e entrega do buquê.", "opcional": true },
+        { "hora": "10:30h", "descricao": "Bênção final." },
+        { "hora": "10:35h", "descricao": "Apresentação oficial do casal e beijo dos noivos." },
+        { "hora": "10:40h", "descricao": "Saída dos noivos." },
+        { "hora": "10:45h", "descricao": "Saída dos pais, padrinhos, daminhas e pajens." },
+        { "hora": "10:50h", "descricao": "Jogo do buquê na área externa da igreja.", "opcional": true }
+      ]
+    },
+    {
+      "titulo": "Fotos",
+      "itens": [
+        { "hora": "11:00h às 11:20h", "descricao": "Fotos com familiares, padrinhos e convidados na igreja." }
+      ]
+    },
+    {
+      "titulo": "Deslocamento",
+      "itens": [
+        { "hora": "11:20h às 11:30h", "descricao": "Deslocamento dos convidados para o Sal e Brasa." }
+      ]
+    },
+    {
+      "titulo": "Recepção – Sal e Brasa",
+      "itens": [
+        { "hora": "11:30h", "descricao": "Chegada dos convidados." },
+        { "hora": "11:40h", "descricao": "Entrada dos noivos." },
+        { "hora": "11:45h", "descricao": "Início do almoço." },
+        { "hora": "13:00h", "descricao": "Corte do bolo e brinde." },
+        { "hora": "13:30h", "descricao": "Fotos e confraternização." },
+        { "hora": "14:00h", "descricao": "Jogo do buquê (opcional, caso não tenha sido realizado na igreja).", "opcional": true },
+        { "hora": "14:30h", "descricao": "Jogo do buquê (opcional, caso seja realizado próximo ao encerramento da recepção).", "opcional": true },
+        { "hora": "15:00h", "descricao": "Encerramento da recepção." }
+      ]
+    }
+  ],
+  "informacoesPreencher": {
+    "padrinhos": "",
+    "paisNoivo": "",
+    "paisNoiva": "",
+    "daminhasPajens": "",
+    "cerimonial": "",
+    "fotografia": "",
+    "filmagem": ""
+  },
+  "nota": "Documento inicial — edite data/roteiro.json e este arquivo em docs/roteiro.md conforme o planejamento for fechado."
+}

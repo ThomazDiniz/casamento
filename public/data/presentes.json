@@ -1,0 +1,18 @@
+{
+  "intro": "O maior presente é celebrar com vocês. Se quiserem contribuir de outra forma:",
+  "opcoes": [
+    {
+      "tipo": "lista",
+      "titulo": "Lista de presentes",
+      "itens": [
+        "Substitua por links (ex.: lista de loja, Zola, Quero de Casamento) ou itens específicos."
+      ]
+    },
+    {
+      "tipo": "pix",
+      "titulo": "Contribuição em dinheiro",
+      "texto": "Chave PIX e dados bancários podem ser adicionados aqui quando estiverem definidos. Nada substitui a sua presença."
+    }
+  ],
+  "fechamento": "Thomaz e Joana agradecem de coração."
+}
