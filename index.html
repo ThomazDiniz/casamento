@@ -333,6 +333,15 @@
     .reveal-d1 { transition-delay: .14s; }
     .reveal-d2 { transition-delay: .28s; }
 
+    /* ── PRINT ─────────────────────────────────────────────────── */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .scroll-cue { display: none; }
+    }
+
     /* ── MOBILE ────────────────────────────────────────────────── */
     @media (max-width: 480px) {
       .hero-locais { gap: 2rem; }
@@ -394,6 +403,22 @@
   </div>
 </section>
 
+<!-- RSVP -->
+<section id="rsvp" class="reveal">
+  <div class="rsvp-inner">
+    <p class="rsvp-eyebrow">Confirmação</p>
+    <h2 class="rsvp-heading">Confirme sua presença</h2>
+    <div class="rsvp-rule"></div>
+    <p class="rsvp-desc">
+      Para confirmar sua presença, entre em contato diretamente com os noivos pelo WhatsApp.
+      Sua confirmação nos ajuda muito na organização —
+      e mal podemos esperar para celebrar com você.
+    </p>
+  </div>
+</section>
+
+<div class="full-divider"></div>
+
 <!-- PRESENTE -->
 <section id="presente" class="reveal">
   <div class="presente-inner">
@@ -429,22 +454,6 @@
     </div>
     <p class="pix-feedback" id="pix-feedback">✓ Chave copiada!</p>
     <p class="presente-closing">Joana e Thomaz agradecem de coração.</p>
-  </div>
-</section>
-
-<div class="full-divider"></div>
-
-<!-- RSVP -->
-<section id="rsvp" class="reveal">
-  <div class="rsvp-inner">
-    <p class="rsvp-eyebrow">Confirmação</p>
-    <h2 class="rsvp-heading">Confirme sua presença</h2>
-    <div class="rsvp-rule"></div>
-    <p class="rsvp-desc">
-      Para confirmar sua presença, entre em contato diretamente com os noivos pelo WhatsApp.
-      Sua confirmação nos ajuda muito na organização —
-      e mal podemos esperar para celebrar com você.
-    </p>
   </div>
 </section>
 
