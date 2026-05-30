@@ -145,41 +145,80 @@
       font-weight: 300;
     }
 
-    /* COUNTDOWN */
-    #countdown {
+    /* HERO LOCAIS */
+    .hero-locais {
       display: flex;
-      align-items: flex-start;
-      gap: 0;
+      gap: 3.5rem;
       margin-top: 3.5rem;
       justify-content: center;
+      flex-wrap: wrap;
     }
-    .cd-unit {
+    .hero-local-link {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.3rem;
-      min-width: 5rem;
+      gap: 1.1rem;
+      text-decoration: none;
+      color: inherit;
     }
-    .cd-num {
-      font-family: var(--serif);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 300;
-      color: var(--olive-dark);
-      line-height: 1;
+    .hero-local-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 1px solid var(--olive-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      transition: border-color .25s, background .25s, transform .25s;
     }
-    .cd-label {
+    .hero-local-link:hover .hero-local-circle {
+      border-color: var(--olive);
+      background: rgba(184,190,160,.15);
+      transform: scale(1.06);
+    }
+    .hero-local-circle svg {
+      width: 34px;
+      height: 34px;
+      stroke: var(--olive-mid);
+      fill: none;
+      stroke-width: 1.4;
+      transition: stroke .25s;
+    }
+    .hero-local-link:hover .hero-local-circle svg { stroke: var(--olive-dark); }
+    .hero-local-tag {
       font-size: 0.6rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--olive-light);
+      color: var(--olive-mid);
+      margin-bottom: 0.15rem;
+      text-align: center;
     }
-    .cd-sep {
+    .hero-local-name {
       font-family: var(--serif);
-      font-size: 2.5rem;
-      color: var(--olive-pale);
-      line-height: 1;
-      margin-top: 0.15rem;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--olive-dark);
+      text-align: center;
+      line-height: 1.3;
+      max-width: 140px;
     }
+    .hero-local-hora {
+      font-size: 0.72rem;
+      color: var(--olive);
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+    .hero-local-cta {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+      border-bottom: 1px solid var(--olive-pale);
+      padding-bottom: 1px;
+      transition: color .2s, border-color .2s;
+    }
+    .hero-local-link:hover .hero-local-cta { color: var(--gold); border-color: var(--gold); }
 
     .scroll-cue {
       margin-top: 4.5rem;
@@ -540,14 +579,30 @@
   <p class="hero-date">10 · Outubro · 2026 &nbsp;·&nbsp; Sábado</p>
   <p class="hero-tagline">— A alegria da nossa união fica completa com a sua presença. —</p>
 
-  <div id="countdown">
-    <div class="cd-unit"><span class="cd-num" id="cd-d">—</span><span class="cd-label">dias</span></div>
-    <span class="cd-sep">·</span>
-    <div class="cd-unit"><span class="cd-num" id="cd-h">—</span><span class="cd-label">horas</span></div>
-    <span class="cd-sep">·</span>
-    <div class="cd-unit"><span class="cd-num" id="cd-m">—</span><span class="cd-label">min</span></div>
-    <span class="cd-sep">·</span>
-    <div class="cd-unit"><span class="cd-num" id="cd-s">—</span><span class="cd-label">seg</span></div>
+  <div class="hero-locais">
+    <a class="hero-local-link"
+       href="https://www.google.com/maps/place/Par%C3%B3quia+Santo+Ant%C3%B4nio+de+Lisboa/data=!4m2!3m1!1s0x0:0xa18129106e3074ca?sa=X&ved=1t:2428&ictx=111"
+       target="_blank" rel="noopener">
+      <div class="hero-local-circle">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      <p class="hero-local-tag">Cerimônia</p>
+      <p class="hero-local-name">Paróquia Santo Antônio de Lisboa</p>
+      <p class="hero-local-hora">09:00h · Tambaú</p>
+      <span class="hero-local-cta">Ver no Maps ↗</span>
+    </a>
+
+    <a class="hero-local-link"
+       href="https://www.google.com/maps/place/Sal+e+Brasa+Jo%C3%A3o+Pessoa/data=!4m2!3m1!1s0x0:0xfad360b52cdc7291?sa=X&ved=1t:2428&ictx=111"
+       target="_blank" rel="noopener">
+      <div class="hero-local-circle">
+        <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+      </div>
+      <p class="hero-local-tag">Recepção</p>
+      <p class="hero-local-name">Sal e Brasa João Pessoa</p>
+      <p class="hero-local-hora">11:30h · Cabo Branco</p>
+      <span class="hero-local-cta">Ver no Maps ↗</span>
+    </a>
   </div>
 
   <div class="scroll-cue">
@@ -659,26 +714,6 @@
 </footer>
 
 <script>
-  // Countdown
-  (function () {
-    const target = new Date('2026-10-10T09:00:00');
-    function pad(n) { return String(n).padStart(2, '0'); }
-    function tick() {
-      const diff = target - new Date();
-      if (diff <= 0) {
-        document.getElementById('countdown').innerHTML =
-          '<p style="font-family:var(--serif);font-style:italic;color:var(--olive-mid);font-size:1.4rem;">Que dia abençoado!</p>';
-        return;
-      }
-      document.getElementById('cd-d').textContent = pad(Math.floor(diff / 86400000));
-      document.getElementById('cd-h').textContent = pad(Math.floor((diff % 86400000) / 3600000));
-      document.getElementById('cd-m').textContent = pad(Math.floor((diff % 3600000) / 60000));
-      document.getElementById('cd-s').textContent = pad(Math.floor((diff % 60000) / 1000));
-    }
-    tick();
-    setInterval(tick, 1000);
-  })();
-
   // Scroll reveal
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
