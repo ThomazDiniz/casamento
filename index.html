@@ -68,6 +68,27 @@
 
     #hero > * { position: relative; z-index: 1; }
 
+    .hero-epigrafe {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(0.78rem, 1.5vw, 0.92rem);
+      font-weight: 300;
+      color: var(--olive-mid);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 3rem;
+      opacity: 0.85;
+    }
+    .hero-epigrafe span {
+      font-style: normal;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 0.5rem;
+      color: var(--olive-light);
+    }
+
     .hero-pre {
       font-size: 0.68rem;
       letter-spacing: 0.3em;
@@ -186,47 +207,6 @@
       50%       { transform: translateY(6px); opacity: .85; }
     }
 
-    /* ── BIBLIA PARALLAX ───────────────────────────────────────── */
-    .biblia-wrap {
-      position: relative;
-      overflow: hidden;
-    }
-    .biblia-bg {
-      position: absolute;
-      inset: -20%;
-      background:
-        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(61,68,52,.95) 0%, rgba(46,51,40,.98) 100%);
-      will-change: transform;
-    }
-    .biblia-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 6rem 2rem;
-    }
-    .biblia-content blockquote {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: clamp(1.15rem, 2.8vw, 1.55rem);
-      font-weight: 300;
-      color: rgba(244,241,232,.9);
-      line-height: 1.8;
-      max-width: 640px;
-      margin: 0 auto 1.5rem;
-    }
-    .biblia-content blockquote::before {
-      content: '\201C';
-      display: block;
-      font-size: 3.5rem;
-      line-height: 1;
-      color: var(--olive-accent);
-      margin-bottom: 0.25rem;
-      font-style: normal;
-    }
-    .biblia-content cite {
-      font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase;
-      color: var(--olive-light); font-style: normal;
-    }
 
     /* ── PRESENTE ──────────────────────────────────────────────── */
     #presente {
@@ -379,6 +359,8 @@
 <section id="hero">
   <div id="hero-bg"></div>
 
+  <p class="hero-epigrafe">"Para que todos vejam, e saibam, e considerem, e juntamente entendam<br>que a mão do Senhor fez isto, e o Santo de Israel o criou."<br><span>— Isaías 41:20</span></p>
+
   <p class="hero-pre">Convidamos com alegria</p>
   <h1 class="hero-names">
     Joana
@@ -420,19 +402,6 @@
     <span>Rolar</span>
   </div>
 </section>
-
-<!-- BÍBLIA PARALLAX -->
-<div class="biblia-wrap">
-  <div class="biblia-bg" id="biblia-bg"></div>
-  <div class="biblia-content reveal">
-    <blockquote>
-      Para que todos vejam, e saibam, e considerem,
-      e juntamente entendam que a mão do Senhor fez isto,
-      e o Santo de Israel o criou.
-    </blockquote>
-    <cite>Isaías 41 · 20</cite>
-  </div>
-</div>
 
 <!-- PRESENTE -->
 <section id="presente" class="reveal">
@@ -490,18 +459,12 @@
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
   // Parallax
-  const heroBg   = document.getElementById('hero-bg');
-  const bibliaBg = document.getElementById('biblia-bg');
+  const heroBg = document.getElementById('hero-bg');
 
   function onScroll() {
     const sy = window.scrollY;
     // Hero: move bg up at 40% scroll speed
     heroBg.style.transform = `translateY(${sy * 0.4}px)`;
-    // Biblia: move bg at slower rate relative to its position
-    const bibliaWrap = bibliaBg.parentElement;
-    const bTop = bibliaWrap.getBoundingClientRect().top + sy;
-    const offset = (sy - bTop) * 0.35;
-    bibliaBg.style.transform = `translateY(${offset}px)`;
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
