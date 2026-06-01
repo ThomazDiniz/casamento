@@ -16,6 +16,8 @@ Projeto para centralizar informações do casamento, gerar um convite em PDF e u
 | `data/roteiro.json` | Cronograma do dia (cerimônia, fotos, recepção) — usado no PDF |
 | `data/roteiro.md` | Mesmo roteiro em Markdown, para ler e revisar com facilidade |
 | `public/` | Site estático (abra `index.html` no navegador) |
+| `convidados.html` | Página de gestão da lista de convidados (dashboard + filtros + adição inline) |
+| `convidados.json` | Lista de convidados — **substitua este arquivo** para atualizar a lista; ao abrir `convidados.html` os dados são mesclados automaticamente com o que estiver salvo no navegador |
 
 ## Sobre os lugares
 
