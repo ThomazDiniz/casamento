@@ -680,6 +680,26 @@
     "observacoes": ""
   },
   {
+    "id": 78,
+    "nome": "Antonio Maieron Junior (Tony)",
+    "lado": "Thomaz",
+    "grupo": "Amigos",
+    "status": "A confirmar",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": ""
+  },
+  {
+    "id": 79,
+    "nome": "André (Gounter)",
+    "lado": "Thomaz",
+    "grupo": "Amigos",
+    "status": "A confirmar",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": ""
+  },
+  {
     "id": 31,
     "nome": "David",
     "lado": "Thomaz",
