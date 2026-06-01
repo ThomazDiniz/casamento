@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Convidados 💍</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      background: linear-gradient(160deg, #ebe4dc 0%, #d8cfc4 45%, #c9bfb2 100%);
+      background-attachment: fixed;
+      color: #2c2622;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2f5d45, #4a7c62);
+      color: white;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 600; letter-spacing: 0.5px; }
+    header p  { font-size: 0.9rem; opacity: 0.85; margin-top: 2px; }
+
+    .header-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: opacity 0.15s, transform 0.1s;
+    }
+    .btn:hover  { opacity: 0.88; transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary   { background: #fff; color: #2f5d45; }
+    .btn-secondary { background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.4); }
+    .btn-danger    { background: #e05c5c; color: #fff; }
+    .btn-sm        { padding: 5px 10px; font-size: 0.78rem; }
+
+    /* ── Toolbar ── */
+    .toolbar {
+      padding: 14px 24px;
+      background: #fff;
+      border-bottom: 1px solid #ccddd6;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .toolbar input[type="text"] {
+      padding: 8px 12px;
+      border: 1px solid #b8d0c8;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      width: 220px;
+      background: #fbf8f4;
+    }
+    .toolbar select {
+      padding: 8px 10px;
+      border: 1px solid #b8d0c8;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      background: #fbf8f4;
+      cursor: pointer;
+    }
+    .toolbar .spacer { flex: 1; }
+
+    /* ── Dashboard ── */
+    .dashboard {
+      padding: 20px 24px 4px;
+      background: #fbf8f4;
+    }
+
+    .section-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #4a7c62;
+      margin-bottom: 12px;
+    }
+
+    /* KPI Cards */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px 18px;
+      box-shadow: 0 2px 8px rgba(100,60,40,0.07);
+      border-left: 4px solid #b8d0c8;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(100,60,40,0.12); }
+
+    .kpi-card.green  { border-left-color: #4caf7a; }
+    .kpi-card.yellow { border-left-color: #f5a623; }
+    .kpi-card.gray   { border-left-color: #9ca3af; }
+    .kpi-card.blue   { border-left-color: #3b82f6; }
+    .kpi-card.pink   { border-left-color: #ec4899; }
+    .kpi-card.purple { border-left-color: #8b5cf6; }
+    .kpi-card.orange { border-left-color: #f97316; }
+    .kpi-card.red    { border-left-color: #ef4444; }
+    .kpi-card.brown  { border-left-color: #2f5d45; }
+
+    .kpi-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #6b7f76;
+      margin-bottom: 6px;
+    }
+    .kpi-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #3a2e2a;
+      line-height: 1;
+    }
+    .kpi-sub {
+      font-size: 0.75rem;
+      color: #7a9088;
+      margin-top: 4px;
+    }
+
+    /* Charts grid */
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .chart-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 8px rgba(100,60,40,0.07);
+    }
+    .chart-card h3 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #2f5d45;
+      margin-bottom: 14px;
+    }
+    .chart-card.wide { grid-column: span 2; }
+
+    .chart-container {
+      position: relative;
+    }
+    .chart-container.small  { height: 200px; }
+    .chart-container.medium { height: 240px; }
+    .chart-container.tall   { height: 280px; }
+
+    /* Lado split */
+    .lado-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .lado-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 8px rgba(100,60,40,0.07);
+    }
+    .lado-card h3 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+    .lado-card.thomaz h3 { color: #1e40af; }
+    .lado-card.joana  h3 { color: #9d174d; }
+
+    .progress-bar-wrap { margin-bottom: 10px; }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      margin-bottom: 3px;
+      color: #5a4a44;
+    }
+    .progress-bar {
+      height: 8px;
+      background: #e2eeea;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 20px;
+      transition: width 0.4s ease;
+    }
+    .fill-green  { background: #4caf7a; }
+    .fill-yellow { background: #f5a623; }
+    .fill-gray   { background: #9ca3af; }
+    .fill-blue   { background: #3b82f6; }
+    .fill-pink   { background: #ec4899; }
+
+    /* Grupo table in card */
+    .grupo-table { width: 100%; font-size: 0.82rem; border-collapse: collapse; }
+    .grupo-table th {
+      text-align: left;
+      padding: 5px 8px;
+      font-weight: 600;
+      color: #6b7f76;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      border-bottom: 1px solid #e2eeea;
+    }
+    .grupo-table td { padding: 6px 8px; border-bottom: 1px solid #f2f8f5; }
+    .grupo-table tr:last-child td { border-bottom: none; }
+    .grupo-table tr:hover td { background: #edf4f0; }
+
+    /* Divider */
+    .dash-divider {
+      border: none;
+      border-top: 1px solid #ccddd6;
+      margin: 4px 0 20px;
+    }
+
+    /* ── Table section ── */
+    .table-section { padding: 0 24px 20px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(100,60,40,0.08);
+      font-size: 0.88rem;
+    }
+    thead { background: #2f5d45; color: white; }
+    thead th {
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+      white-space: nowrap;
+      user-select: none;
+      cursor: pointer;
+    }
+    thead th:hover { background: #1e4030; }
+    thead th.sort-asc::after  { content: ' ↑'; }
+    thead th.sort-desc::after { content: ' ↓'; }
+
+    tbody tr { border-bottom: 1px solid #e2eeea; transition: background 0.1s; }
+    tbody tr:hover { background: #edf4f0; }
+    tbody tr:last-child { border-bottom: none; }
+    td { padding: 10px 14px; vertical-align: middle; }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-thomaz      { background: #dbeafe; color: #1e40af; }
+    .badge-joana       { background: #fce7f3; color: #9d174d; }
+    .badge-confirmado  { background: #d1fae5; color: #065f46; }
+    .badge-a-confirmar { background: #fef3c7; color: #92400e; }
+    .badge-pensar      { background: #f3f4f6; color: #374151; }
+    .badge-alta        { background: #d1fae5; color: #065f46; }
+    .badge-media       { background: #fef3c7; color: #92400e; }
+    .badge-baixa       { background: #fee2e2; color: #991b1b; }
+    .badge-adulto      { background: #ede9fe; color: #5b21b6; }
+    .badge-crianca     { background: #ffedd5; color: #c2410c; }
+
+    .obs-cell { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #7c6b64; font-size: 0.82rem; }
+    .actions-cell { white-space: nowrap; display: flex; gap: 6px; }
+
+    /* ── Inline row (add + edit) ── */
+    tr.inline-row { background: #f5faf7; }
+    tr.add-row    { background: #fbf8f4; border-top: 2px dashed #b8d0c8; }
+    tr.add-row:hover { background: #fbf8f4; }
+    tr.inline-row td, tr.add-row td { padding: 6px 8px; }
+
+    .ir-input, .ir-select {
+      width: 100%;
+      padding: 5px 8px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      background: transparent;
+      color: #3a2e2a;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .ir-input:hover, .ir-select:hover  { border-color: #b8d0c8; background: #fff; }
+    .ir-input:focus, .ir-select:focus  {
+      outline: none;
+      border-color: #2f5d45;
+      background: #fff;
+      box-shadow: 0 0 0 2px rgba(124,74,58,0.12);
+    }
+    .ir-input::placeholder { color: #8aaa9e; }
+
+    tr.add-row .ir-input, tr.add-row .ir-select {
+      border-color: #ccddd6;
+      background: #fff;
+    }
+    tr.add-row .ir-input:focus, tr.add-row .ir-select:focus {
+      border-color: #2f5d45;
+      box-shadow: 0 0 0 2px rgba(124,74,58,0.12);
+    }
+
+    .add-hint {
+      font-size: 0.72rem;
+      color: #8aaa9e;
+      padding: 0 8px 6px;
+      text-align: right;
+    }
+
+    /* Modal */
+    .modal-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 100;
+      padding: 20px;
+    }
+    .modal-backdrop.hidden { display: none; }
+
+    .modal {
+      background: #fff;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    .modal-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid #e2eeea;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-header h2 { font-size: 1.1rem; color: #2f5d45; }
+    .modal-close { background: none; border: none; font-size: 1.3rem; cursor: pointer; color: #999; line-height: 1; }
+    .modal-close:hover { color: #444; }
+    .modal-body { padding: 20px 24px; }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-grid .full { grid-column: 1 / -1; }
+
+    .field label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #2f5d45;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 9px 12px;
+      border: 1px solid #b8d0c8;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      background: #fbf8f4;
+      font-family: inherit;
+    }
+    .field textarea { resize: vertical; min-height: 70px; }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none;
+      border-color: #2f5d45;
+      box-shadow: 0 0 0 3px rgba(124,74,58,0.1);
+    }
+
+    .modal-footer {
+      padding: 16px 24px 20px;
+      border-top: 1px solid #e2eeea;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .modal-footer .btn { padding: 9px 20px; font-size: 0.88rem; }
+    .modal-footer .btn-cancel { background: #edf4f0; color: #2f5d45; }
+    .modal-footer .btn-save   { background: #2f5d45; color: #fff; }
+
+    .empty-state { text-align: center; padding: 48px 24px; color: #7a9088; }
+    .empty-state p { font-size: 1rem; margin-top: 8px; }
+
+    .import-zone {
+      border: 2px dashed #b8d0c8;
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #6b7f76;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: border-color 0.2s;
+    }
+    .import-zone:hover { border-color: #2f5d45; }
+    .import-zone input { display: none; }
+
+    @media (max-width: 700px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .form-grid .full { grid-column: 1; }
+      header { padding: 16px; }
+      .chart-card.wide { grid-column: span 1; }
+      .lado-split { grid-template-columns: 1fr; }
+      .kpi-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Lista de Convidados</h1>
+    <p>Thomaz &amp; Joana</p>
+  </div>
+  <div class="header-actions">
+    <button class="btn btn-secondary" onclick="openImportModal()">⬆ Importar JSON</button>
+    <button class="btn btn-secondary" onclick="exportCSV()">⬇ Exportar CSV</button>
+    <button class="btn btn-secondary" onclick="exportJSON()">⬇ Exportar JSON</button>
+  </div>
+</header>
+
+<div class="toolbar">
+  <input type="text" id="search" placeholder="🔍 Buscar por nome..." oninput="render()" />
+  <select id="filterLado" onchange="render()">
+    <option value="">Todos os lados</option>
+    <option value="Thomaz">Thomaz</option>
+    <option value="Joana">Joana</option>
+  </select>
+  <select id="filterGrupo" onchange="render()">
+    <option value="">Todos os grupos</option>
+  </select>
+  <select id="filterStatus" onchange="render()">
+    <option value="">Todos os status</option>
+    <option value="Confirmado">Confirmado</option>
+    <option value="A confirmar">A confirmar</option>
+    <option value="Pensar em chamar">Pensar em chamar</option>
+  </select>
+  <select id="filterChance" onchange="render()">
+    <option value="">Todas as chances</option>
+    <option value="Alta">Alta</option>
+    <option value="Média">Média</option>
+    <option value="Baixa">Baixa</option>
+  </select>
+  <select id="filterTipo" onchange="render()">
+    <option value="">Adulto/Criança</option>
+    <option value="Adulto">Adulto</option>
+    <option value="Criança">Criança</option>
+  </select>
+  <div class="spacer"></div>
+  <button class="btn btn-sm" style="background:#edf4f0;color:#2f5d45;" onclick="clearFilters()">Limpar filtros</button>
+</div>
+
+<!-- ═══════════════════════════ DASHBOARD ═══════════════════════════ -->
+<div class="dashboard">
+
+  <!-- KPI Cards -->
+  <div class="section-title">Visão Geral</div>
+  <div class="kpi-grid" id="kpiGrid"></div>
+
+  <hr class="dash-divider">
+
+  <!-- Lado split -->
+  <div class="section-title">Por Lado</div>
+  <div class="lado-split">
+    <div class="lado-card thomaz">
+      <h3>💙 Thomaz</h3>
+      <div id="ladoThomaz"></div>
+    </div>
+    <div class="lado-card joana">
+      <h3>🩷 Joana</h3>
+      <div id="ladoJoana"></div>
+    </div>
+  </div>
+
+  <hr class="dash-divider">
+
+  <!-- Charts -->
+  <div class="section-title">Gráficos</div>
+  <div class="charts-grid">
+
+    <div class="chart-card">
+      <h3>Status dos Convidados</h3>
+      <div class="chart-container small">
+        <canvas id="chartStatus"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Chance de Comparecer</h3>
+      <div class="chart-container small">
+        <canvas id="chartChance"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Adultos × Crianças</h3>
+      <div class="chart-container small">
+        <canvas id="chartTipo"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Thomaz × Joana (por status)</h3>
+      <div class="chart-container small">
+        <canvas id="chartLadoStatus"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h3>Capacidade do Evento (80 pessoas)</h3>
+      <div class="chart-container small">
+        <canvas id="chartCapacidade"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-card wide">
+      <h3>Convidados por Grupo</h3>
+      <div class="chart-container medium">
+        <canvas id="chartGrupo"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Grupo detail table -->
+  <hr class="dash-divider">
+  <div class="section-title">Detalhamento por Grupo</div>
+  <div class="chart-card" style="margin-bottom:24px;">
+    <table class="grupo-table" id="grupoTable">
+      <thead>
+        <tr>
+          <th>Grupo</th>
+          <th>Total</th>
+          <th>✅ Confirmados</th>
+          <th>⏳ A confirmar</th>
+          <th>🤔 Pensar</th>
+          <th>👤 Adultos</th>
+          <th>👶 Crianças</th>
+        </tr>
+      </thead>
+      <tbody id="grupoTableBody"></tbody>
+    </table>
+  </div>
+
+</div>
+<!-- ════════════════════════════════════════════════════════════════ -->
+
+<div class="table-section">
+  <div class="section-title" style="padding-bottom:12px;">Lista Completa
+    <span id="filterIndicator" style="font-size:0.7rem;color:#4a7c62;margin-left:8px;font-weight:400;text-transform:none;letter-spacing:0;"></span>
+  </div>
+  <table id="table">
+    <thead>
+      <tr>
+        <th onclick="sortBy('nome')">Nome</th>
+        <th onclick="sortBy('lado')">Lado</th>
+        <th onclick="sortBy('grupo')">Grupo</th>
+        <th onclick="sortBy('status')">Status</th>
+        <th onclick="sortBy('chance')">Chance</th>
+        <th onclick="sortBy('tipo')">Tipo</th>
+        <th>Observações</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div id="empty" class="empty-state hidden">
+    <div style="font-size:2.5rem">🔍</div>
+    <p>Nenhum convidado encontrado com esses filtros.</p>
+  </div>
+</div>
+
+<datalist id="grupos-list"></datalist>
+
+<!-- ── Import Modal ── -->
+<div class="modal-backdrop hidden" id="importModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Importar JSON</h2>
+      <button class="modal-close" onclick="closeModal('importModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:0.88rem;color:#7c6b64;margin-bottom:12px;">Selecione um arquivo <code>convidados.json</code> para carregar a lista. Os dados existentes serão substituídos.</p>
+      <label class="import-zone" for="importFile">
+        <div style="font-size:2rem">📂</div>
+        <div style="margin-top:6px;">Clique para selecionar o arquivo JSON</div>
+        <input type="file" id="importFile" accept=".json" onchange="handleImport(event)" />
+      </label>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-cancel" onclick="closeModal('importModal')">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── State ────────────────────────────────────────────────────────────────────
+let guests = [];
+let editingId = null;
+let sortCol = 'nome';
+let sortDir = 1;
+const STORAGE_KEY = 'casamento_convidados';
+
+// Chart instances (to destroy before recreating)
+const charts = {};
+
+const LIMITE = 80;
+
+// ─── Colors ───────────────────────────────────────────────────────────────────
+const C = {
+  confirmado: '#4caf7a',
+  aConfirmar: '#f5a623',
+  pensar:     '#9ca3af',
+  alta:       '#4caf7a',
+  media:      '#f5a623',
+  baixa:      '#ef4444',
+  semChance:  '#e5e7eb',
+  adulto:     '#8b5cf6',
+  crianca:    '#f97316',
+  thomaz:     '#3b82f6',
+  joana:      '#ec4899',
+};
+
+// ─── Init ─────────────────────────────────────────────────────────────────────
+// Estratégia de merge:
+//   1. Carrega convidados.json (fonte de verdade do arquivo)
+//   2. Carrega o que está salvo no navegador (localStorage)
+//   3. Mescla: o arquivo é a base; edições feitas no navegador prevalecem por ID;
+//      convidados adicionados só no navegador (IDs novos) são mantidos.
+//   4. Salva o resultado de volta no localStorage.
+// Isso significa que editar o JSON e reabrir a página reflete as mudanças,
+// e tudo editado/adicionado no navegador é preservado.
+
+window.onload = async () => {
+  let fromFile  = [];
+  let fromLocal = [];
+
+  // Tenta carregar o arquivo JSON
+  try {
+    const res = await fetch('convidados.json');
+    if (res.ok) fromFile = await res.json();
+  } catch(e) { /* arquivo não disponível, tudo bem */ }
+
+  // Carrega o localStorage
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    try { fromLocal = JSON.parse(saved); } catch(e) { fromLocal = []; }
+  }
+
+  // Merge: começa com o arquivo, depois aplica localStorage por cima (por ID)
+  if (fromFile.length === 0 && fromLocal.length === 0) {
+    guests = [];
+  } else if (fromFile.length === 0) {
+    guests = fromLocal; // só localStorage
+  } else if (fromLocal.length === 0) {
+    guests = fromFile;  // só arquivo
+  } else {
+    // Índice do localStorage por ID para lookup rápido
+    const localMap = new Map(fromLocal.map(g => [g.id, g]));
+    const fileIds  = new Set(fromFile.map(g => g.id));
+
+    // Entradas do arquivo, sobrescritas pela versão do navegador se existir
+    const merged = fromFile.map(g => localMap.has(g.id) ? localMap.get(g.id) : g);
+
+    // Entradas que existem só no navegador (IDs que não estão no arquivo)
+    const localOnly = fromLocal.filter(g => !fileIds.has(g.id));
+
+    guests = [...merged, ...localOnly];
+  }
+
+  save();
+  render();
+};
+
+// ─── Persistence ──────────────────────────────────────────────────────────────
+function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(guests)); }
+
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+function esc(str) {
+  return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function pct(n, total) { return total ? Math.round(n / total * 100) : 0; }
+function mkChart(id, config) {
+  if (charts[id]) charts[id].destroy();
+  const ctx = document.getElementById(id);
+  if (!ctx) return;
+  charts[id] = new Chart(ctx, config);
+}
+
+// ─── Render ───────────────────────────────────────────────────────────────────
+function render() {
+  const q      = document.getElementById('search').value.toLowerCase();
+  const lado   = document.getElementById('filterLado').value;
+  const grupo  = document.getElementById('filterGrupo').value;
+  const status = document.getElementById('filterStatus').value;
+  const chance = document.getElementById('filterChance').value;
+  const tipo   = document.getElementById('filterTipo').value;
+
+  let filtered = guests.filter(g => {
+    if (q      && !g.nome.toLowerCase().includes(q)) return false;
+    if (lado   && g.lado   !== lado)   return false;
+    if (grupo  && g.grupo  !== grupo)  return false;
+    if (status && g.status !== status) return false;
+    if (chance && g.chance !== chance) return false;
+    if (tipo   && g.tipo   !== tipo)   return false;
+    return true;
+  });
+
+  // Sort
+  filtered.sort((a, b) => {
+    const va = (a[sortCol]||'').toLowerCase();
+    const vb = (b[sortCol]||'').toLowerCase();
+    return va < vb ? -sortDir : va > vb ? sortDir : 0;
+  });
+
+  // Sort header indicators
+  document.querySelectorAll('thead th').forEach(th => th.classList.remove('sort-asc','sort-desc'));
+  const cols = ['nome','lado','grupo','status','chance','tipo'];
+  const idx  = cols.indexOf(sortCol);
+  if (idx >= 0) document.querySelectorAll('thead th')[idx].classList.add(sortDir===1?'sort-asc':'sort-desc');
+
+  // Populate grupo filter + datalist
+  const grupos = [...new Set(guests.map(g => g.grupo).filter(Boolean))].sort();
+  const grupoSel = document.getElementById('filterGrupo');
+  const curGrupo = grupoSel.value;
+  grupoSel.innerHTML = '<option value="">Todos os grupos</option>' +
+    grupos.map(g => `<option value="${esc(g)}" ${g===curGrupo?'selected':''}>${esc(g)}</option>`).join('');
+  document.getElementById('grupos-list').innerHTML = grupos.map(g => `<option value="${esc(g)}">`).join('');
+
+  // Filter indicator
+  const isFiltered = q || lado || grupo || status || chance || tipo;
+  document.getElementById('filterIndicator').textContent =
+    isFiltered ? `Exibindo ${filtered.length} de ${guests.length}` : '';
+
+  // Render rows
+  const tbody = document.getElementById('tbody');
+  const empty = document.getElementById('empty');
+  empty.classList.add('hidden');
+
+  const guestRows = filtered.map(g => {
+    if (g.id === editingId) return renderEditRow(g);
+    return `<tr data-id="${g.id}">
+      <td><strong>${esc(g.nome)}</strong></td>
+      <td><span class="badge badge-${(g.lado||'').toLowerCase()}">${esc(g.lado||'—')}</span></td>
+      <td>${esc(g.grupo||'—')}</td>
+      <td><span class="badge ${statusBadge(g.status)}">${esc(g.status||'—')}</span></td>
+      <td>${g.chance ? `<span class="badge ${chanceBadge(g.chance)}">${esc(g.chance)}</span>` : '—'}</td>
+      <td><span class="badge ${g.tipo==='Criança'?'badge-crianca':'badge-adulto'}">${esc(g.tipo||'Adulto')}</span></td>
+      <td class="obs-cell" title="${esc(g.observacoes||'')}">${esc(g.observacoes||'')}</td>
+      <td><div class="actions-cell">
+        <button class="btn btn-sm" style="background:#e2eeea;color:#2f5d45;" onclick="startEdit(${g.id})">✏️</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteGuest(${g.id})">🗑</button>
+      </div></td>
+    </tr>`;
+  }).join('');
+
+  tbody.innerHTML = guestRows + renderAddRow();
+
+  // Focus add-row name if nothing is being edited and filtered list is full
+  if (editingId === null) {
+    const ni = document.getElementById('new-nome');
+    if (ni && document.activeElement !== ni) { /* don't steal focus */ }
+  }
+
+  // Dashboard always reflects full list
+  renderDashboard();
+}
+
+function renderAddRow() {
+  return `<tr class="add-row" id="addRow">
+    <td><input class="ir-input" id="new-nome" type="text" placeholder="+ Nome..." autocomplete="off"
+      onkeydown="addRowKey(event)" /></td>
+    <td><select class="ir-select" id="new-lado" onkeydown="addRowKey(event)">
+      <option value="Thomaz">Thomaz</option>
+      <option value="Joana">Joana</option>
+    </select></td>
+    <td><input class="ir-input" id="new-grupo" type="text" list="grupos-list" placeholder="Grupo"
+      onkeydown="addRowKey(event)" /></td>
+    <td><select class="ir-select" id="new-status" onkeydown="addRowKey(event)">
+      <option value="Pensar em chamar">Pensar em chamar</option>
+      <option value="A confirmar">A confirmar</option>
+      <option value="Confirmado">Confirmado</option>
+    </select></td>
+    <td><select class="ir-select" id="new-chance" onkeydown="addRowKey(event)">
+      <option value="">—</option>
+      <option value="Alta">Alta</option>
+      <option value="Média">Média</option>
+      <option value="Baixa">Baixa</option>
+    </select></td>
+    <td><select class="ir-select" id="new-tipo" onkeydown="addRowKey(event)">
+      <option value="Adulto">Adulto</option>
+      <option value="Criança">Criança</option>
+    </select></td>
+    <td><input class="ir-input" id="new-obs" type="text" placeholder="Observações"
+      onkeydown="addRowKey(event)" /></td>
+    <td><button class="btn btn-sm" style="background:#2f5d45;color:#fff;white-space:nowrap;"
+      onclick="commitAdd()">Adicionar</button></td>
+  </tr>
+  <tr><td colspan="8" class="add-hint">Enter para adicionar · Esc para limpar</td></tr>`;
+}
+
+function renderEditRow(g) {
+  return `<tr class="inline-row" data-id="${g.id}">
+    <td><input class="ir-input" id="e-nome" value="${esc(g.nome)}" type="text"
+      onkeydown="editRowKey(event,${g.id})" /></td>
+    <td><select class="ir-select" id="e-lado" onkeydown="editRowKey(event,${g.id})">
+      <option value="Thomaz" ${g.lado==='Thomaz'?'selected':''}>Thomaz</option>
+      <option value="Joana"  ${g.lado==='Joana'?'selected':''}>Joana</option>
+    </select></td>
+    <td><input class="ir-input" id="e-grupo" value="${esc(g.grupo||'')}" type="text" list="grupos-list"
+      onkeydown="editRowKey(event,${g.id})" /></td>
+    <td><select class="ir-select" id="e-status" onkeydown="editRowKey(event,${g.id})">
+      <option value="Pensar em chamar" ${g.status==='Pensar em chamar'?'selected':''}>Pensar em chamar</option>
+      <option value="A confirmar"      ${g.status==='A confirmar'?'selected':''}>A confirmar</option>
+      <option value="Confirmado"       ${g.status==='Confirmado'?'selected':''}>Confirmado</option>
+    </select></td>
+    <td><select class="ir-select" id="e-chance" onkeydown="editRowKey(event,${g.id})">
+      <option value=""      ${!g.chance?'selected':''}>—</option>
+      <option value="Alta"  ${g.chance==='Alta'?'selected':''}>Alta</option>
+      <option value="Média" ${g.chance==='Média'?'selected':''}>Média</option>
+      <option value="Baixa" ${g.chance==='Baixa'?'selected':''}>Baixa</option>
+    </select></td>
+    <td><select class="ir-select" id="e-tipo" onkeydown="editRowKey(event,${g.id})">
+      <option value="Adulto"  ${g.tipo!=='Criança'?'selected':''}>Adulto</option>
+      <option value="Criança" ${g.tipo==='Criança'?'selected':''}>Criança</option>
+    </select></td>
+    <td><input class="ir-input" id="e-obs" value="${esc(g.observacoes||'')}" type="text"
+      onkeydown="editRowKey(event,${g.id})" /></td>
+    <td><div class="actions-cell">
+      <button class="btn btn-sm" style="background:#2f5d45;color:#fff;" onclick="commitEdit(${g.id})">✓</button>
+      <button class="btn btn-sm" style="background:#edf4f0;color:#2f5d45;" onclick="cancelEdit()">✕</button>
+    </div></td>
+  </tr>`;
+}
+
+// ─── Dashboard ────────────────────────────────────────────────────────────────
+function renderDashboard() {
+  const g = guests;
+  const total       = g.length;
+  const confirmados = g.filter(x => x.status === 'Confirmado').length;
+  const aConfirmar  = g.filter(x => x.status === 'A confirmar').length;
+  const pensar      = g.filter(x => x.status === 'Pensar em chamar').length;
+  const adultos     = g.filter(x => x.tipo === 'Adulto').length;
+  const criancas    = g.filter(x => x.tipo === 'Criança').length;
+  const thomazAll   = g.filter(x => x.lado === 'Thomaz');
+  const joanaAll    = g.filter(x => x.lado === 'Joana');
+  const altaChance  = g.filter(x => x.chance === 'Alta').length;
+  const naoConf     = total - confirmados;
+
+  // ── KPI Cards ──
+  const vagas        = LIMITE - total;
+  const vagasConf    = LIMITE - confirmados;
+  const pctCapTotal  = pct(total, LIMITE);
+  const pctCapConf   = pct(confirmados, LIMITE);
+  const capColor     = pctCapTotal >= 100 ? '#ef4444' : pctCapTotal >= 85 ? '#f5a623' : '#4caf7a';
+
+  document.getElementById('kpiGrid').innerHTML = `
+    <div class="kpi-card" style="border-left-color:${capColor};grid-column:span 2;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">
+        <div>
+          <div class="kpi-label">Capacidade — limite de ${LIMITE} pessoas</div>
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span class="kpi-value">${total}</span>
+            <span style="font-size:1rem;color:#6b7f76;">/ ${LIMITE}</span>
+            <span style="font-size:0.85rem;color:${capColor};font-weight:700;">${pctCapTotal}% ocupado</span>
+          </div>
+          <div class="kpi-sub" style="margin-top:4px;">${vagas >= 0 ? `${vagas} vaga${vagas!==1?'s':''} restante${vagas!==1?'s':''}` : `<span style='color:#ef4444;font-weight:600;'>${Math.abs(vagas)} acima do limite!</span>`} &nbsp;·&nbsp; ${vagasConf >= 0 ? `${vagasConf} ainda caberiam com confirmados` : `confirmados já excedem o limite`}</div>
+        </div>
+        <div style="font-size:2rem;">${pctCapTotal >= 100 ? '🚨' : pctCapTotal >= 85 ? '⚠️' : '✅'}</div>
+      </div>
+      <div style="background:#e2eeea;border-radius:20px;height:10px;overflow:hidden;">
+        <div style="height:100%;border-radius:20px;background:${capColor};width:${Math.min(pctCapTotal,100)}%;transition:width 0.4s;"></div>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:8px;font-size:0.75rem;color:#6b7f76;">
+        <span style="color:#4caf7a;">■ Confirmados ${confirmados}</span>
+        <span style="color:#f5a623;">■ A confirmar ${aConfirmar}</span>
+        <span style="color:#9ca3af;">■ Pensar ${pensar}</span>
+        <span style="color:#b8d0c8;">■ Vagas livres ${Math.max(vagas,0)}</span>
+      </div>
+    </div>
+
+    <div class="kpi-card green">
+      <div class="kpi-label">Confirmados</div>
+      <div class="kpi-value">${confirmados}</div>
+      <div class="kpi-sub">${pct(confirmados,LIMITE)}% da capacidade</div>
+    </div>
+    <div class="kpi-card yellow">
+      <div class="kpi-label">A confirmar</div>
+      <div class="kpi-value">${aConfirmar}</div>
+      <div class="kpi-sub">${pct(aConfirmar,total)}% do total</div>
+    </div>
+    <div class="kpi-card gray">
+      <div class="kpi-label">Pensar</div>
+      <div class="kpi-value">${pensar}</div>
+      <div class="kpi-sub">${pct(pensar,total)}% do total</div>
+    </div>
+    <div class="kpi-card red">
+      <div class="kpi-label">Não conf.</div>
+      <div class="kpi-value">${naoConf}</div>
+      <div class="kpi-sub">pendentes</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Thomaz</div>
+      <div class="kpi-value">${thomazAll.length}</div>
+      <div class="kpi-sub">${pct(thomazAll.length,total)}% do total</div>
+    </div>
+    <div class="kpi-card pink">
+      <div class="kpi-label">Joana</div>
+      <div class="kpi-value">${joanaAll.length}</div>
+      <div class="kpi-sub">${pct(joanaAll.length,total)}% do total</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-label">Adultos</div>
+      <div class="kpi-value">${adultos}</div>
+      <div class="kpi-sub">${criancas} criança${criancas!==1?'s':''}</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Alta chance</div>
+      <div class="kpi-value">${altaChance}</div>
+      <div class="kpi-sub">de comparecer</div>
+    </div>
+  `;
+
+  // ── Lado progress bars ──
+  renderLado('ladoThomaz', thomazAll);
+  renderLado('ladoJoana',  joanaAll);
+
+  // ── Chart: Status donut ──
+  mkChart('chartStatus', {
+    type: 'doughnut',
+    data: {
+      labels: ['Confirmado', 'A confirmar', 'Pensar em chamar'],
+      datasets: [{ data: [confirmados, aConfirmar, pensar],
+        backgroundColor: [C.confirmado, C.aConfirmar, C.pensar],
+        borderWidth: 2, borderColor: '#fff' }]
+    },
+    options: donutOpts('Status')
+  });
+
+  // ── Chart: Chance donut ──
+  const chAlta  = g.filter(x => x.chance === 'Alta').length;
+  const chMedia = g.filter(x => x.chance === 'Média').length;
+  const chBaixa = g.filter(x => x.chance === 'Baixa').length;
+  const chSem   = g.filter(x => !x.chance).length;
+  mkChart('chartChance', {
+    type: 'doughnut',
+    data: {
+      labels: ['Alta', 'Média', 'Baixa', 'Não definida'],
+      datasets: [{ data: [chAlta, chMedia, chBaixa, chSem],
+        backgroundColor: [C.alta, C.media, C.baixa, C.semChance],
+        borderWidth: 2, borderColor: '#fff' }]
+    },
+    options: donutOpts('Chance')
+  });
+
+  // ── Chart: Tipo donut ──
+  mkChart('chartTipo', {
+    type: 'doughnut',
+    data: {
+      labels: ['Adulto', 'Criança'],
+      datasets: [{ data: [adultos, criancas],
+        backgroundColor: [C.adulto, C.crianca],
+        borderWidth: 2, borderColor: '#fff' }]
+    },
+    options: donutOpts('Tipo')
+  });
+
+  // ── Chart: Lado × Status grouped bar ──
+  mkChart('chartLadoStatus', {
+    type: 'bar',
+    data: {
+      labels: ['Confirmado', 'A confirmar', 'Pensar em chamar'],
+      datasets: [
+        {
+          label: 'Thomaz',
+          data: [
+            thomazAll.filter(x=>x.status==='Confirmado').length,
+            thomazAll.filter(x=>x.status==='A confirmar').length,
+            thomazAll.filter(x=>x.status==='Pensar em chamar').length,
+          ],
+          backgroundColor: C.thomaz + 'cc',
+          borderRadius: 6,
+        },
+        {
+          label: 'Joana',
+          data: [
+            joanaAll.filter(x=>x.status==='Confirmado').length,
+            joanaAll.filter(x=>x.status==='A confirmar').length,
+            joanaAll.filter(x=>x.status==='Pensar em chamar').length,
+          ],
+          backgroundColor: C.joana + 'cc',
+          borderRadius: 6,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: 'top', labels: { font: { size: 11 } } } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { beginAtZero: true, ticks: { stepSize: 1, font: { size: 11 } }, grid: { color: '#e2eeea' } }
+      }
+    }
+  });
+
+  // ── Chart: Capacidade donut ──
+  const livres = Math.max(LIMITE - total, 0);
+  const excede = Math.max(total - LIMITE, 0);
+  mkChart('chartCapacidade', {
+    type: 'doughnut',
+    data: {
+      labels: ['Confirmados', 'A confirmar', 'Pensar em chamar', excede > 0 ? 'Acima do limite' : 'Vagas disponíveis'],
+      datasets: [{
+        data: [confirmados, aConfirmar, pensar, excede > 0 ? excede : livres],
+        backgroundColor: [C.confirmado, C.aConfirmar, C.pensar, excede > 0 ? '#ef4444' : '#e5e7eb'],
+        borderWidth: 2, borderColor: '#fff'
+      }]
+    },
+    options: {
+      ...donutOpts('Capacidade'),
+      plugins: {
+        ...donutOpts('Capacidade').plugins,
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.label}: ${ctx.parsed} (${pct(ctx.parsed, LIMITE)}% do limite)`
+          }
+        }
+      }
+    }
+  });
+
+  // ── Chart: Por grupo stacked bar ──
+  const grupos = [...new Set(g.map(x => x.grupo).filter(Boolean))].sort();
+  mkChart('chartGrupo', {
+    type: 'bar',
+    data: {
+      labels: grupos,
+      datasets: [
+        { label: 'Confirmado', data: grupos.map(gr => g.filter(x=>x.grupo===gr&&x.status==='Confirmado').length),
+          backgroundColor: C.confirmado+'cc', borderRadius: 4 },
+        { label: 'A confirmar', data: grupos.map(gr => g.filter(x=>x.grupo===gr&&x.status==='A confirmar').length),
+          backgroundColor: C.aConfirmar+'cc', borderRadius: 4 },
+        { label: 'Pensar em chamar', data: grupos.map(gr => g.filter(x=>x.grupo===gr&&x.status==='Pensar em chamar').length),
+          backgroundColor: C.pensar+'cc', borderRadius: 4 },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top', labels: { font: { size: 11 } } },
+        tooltip: { mode: 'index' }
+      },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 } } },
+        y: { stacked: true, beginAtZero: true, ticks: { stepSize: 1, font: { size: 11 } }, grid: { color: '#e2eeea' } }
+      }
+    }
+  });
+
+  // ── Grupo detail table ──
+  const allGrupos = [...new Set(g.map(x => x.grupo || '—'))].sort();
+  document.getElementById('grupoTableBody').innerHTML = allGrupos.map(gr => {
+    const rows = g.filter(x => (x.grupo||'—') === gr);
+    const conf = rows.filter(x=>x.status==='Confirmado').length;
+    const aConf = rows.filter(x=>x.status==='A confirmar').length;
+    const pen  = rows.filter(x=>x.status==='Pensar em chamar').length;
+    const adu  = rows.filter(x=>x.tipo==='Adulto').length;
+    const cri  = rows.filter(x=>x.tipo==='Criança').length;
+    return `<tr>
+      <td><strong>${esc(gr)}</strong></td>
+      <td><strong>${rows.length}</strong></td>
+      <td style="color:#065f46">${conf}</td>
+      <td style="color:#92400e">${aConf}</td>
+      <td style="color:#374151">${pen}</td>
+      <td>${adu}</td>
+      <td>${cri}</td>
+    </tr>`;
+  }).join('');
+}
+
+function renderLado(containerId, arr) {
+  const total = arr.length;
+  const conf  = arr.filter(x=>x.status==='Confirmado').length;
+  const aCon  = arr.filter(x=>x.status==='A confirmar').length;
+  const pen   = arr.filter(x=>x.status==='Pensar em chamar').length;
+  const adu   = arr.filter(x=>x.tipo==='Adulto').length;
+  const cri   = arr.filter(x=>x.tipo==='Criança').length;
+  const alta  = arr.filter(x=>x.chance==='Alta').length;
+
+  document.getElementById(containerId).innerHTML = `
+    <div style="font-size:1.6rem;font-weight:700;margin-bottom:12px;">${total} <span style="font-size:0.85rem;font-weight:400;color:#6b7f76;">convidados</span></div>
+    ${progressRow('Confirmados', conf, total, 'fill-green')}
+    ${progressRow('A confirmar', aCon, total, 'fill-yellow')}
+    ${progressRow('Pensar em chamar', pen, total, 'fill-gray')}
+    <div style="margin-top:12px;font-size:0.8rem;color:#6b7f76;display:flex;gap:16px;">
+      <span>👤 ${adu} adulto${adu!==1?'s':''}</span>
+      <span>👶 ${cri} criança${cri!==1?'s':''}</span>
+      <span>⭐ ${alta} alta chance</span>
+    </div>
+  `;
+}
+
+function progressRow(label, val, total, fillClass) {
+  const p = pct(val, total);
+  return `<div class="progress-bar-wrap">
+    <div class="progress-label"><span>${label}</span><span>${val} (${p}%)</span></div>
+    <div class="progress-bar"><div class="progress-fill ${fillClass}" style="width:${p}%"></div></div>
+  </div>`;
+}
+
+function donutOpts(title) {
+  return {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '62%',
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 12 } },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` ${ctx.label}: ${ctx.parsed} (${pct(ctx.parsed, ctx.dataset.data.reduce((a,b)=>a+b,0))}%)`
+        }
+      }
+    }
+  };
+}
+
+// ─── Inline Add ───────────────────────────────────────────────────────────────
+function addRowKey(e) {
+  if (e.key === 'Enter')  { e.preventDefault(); commitAdd(); }
+  if (e.key === 'Escape') { e.preventDefault(); clearAddRow(); }
+}
+
+function commitAdd() {
+  const nome = (document.getElementById('new-nome')?.value || '').trim();
+  if (!nome) { document.getElementById('new-nome')?.focus(); return; }
+  const maxId = guests.reduce((m, g) => Math.max(m, g.id||0), 0);
+  guests.push({
+    id:          maxId + 1,
+    nome,
+    lado:        document.getElementById('new-lado').value,
+    grupo:       (document.getElementById('new-grupo').value || '').trim(),
+    status:      document.getElementById('new-status').value,
+    chance:      document.getElementById('new-chance').value,
+    tipo:        document.getElementById('new-tipo').value,
+    observacoes: (document.getElementById('new-obs').value || '').trim(),
+  });
+  save();
+  render();
+  // Restore focus to add row after render
+  document.getElementById('new-nome')?.focus();
+}
+
+function clearAddRow() {
+  ['new-nome','new-grupo','new-obs'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  ['new-lado','new-status','new-chance','new-tipo'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.selectedIndex = 0;
+  });
+  document.getElementById('new-nome')?.focus();
+}
+
+// ─── Inline Edit ──────────────────────────────────────────────────────────────
+function startEdit(id) {
+  editingId = id;
+  render();
+  setTimeout(() => document.getElementById('e-nome')?.focus(), 30);
+}
+
+function editRowKey(e, id) {
+  if (e.key === 'Enter')  { e.preventDefault(); commitEdit(id); }
+  if (e.key === 'Escape') { e.preventDefault(); cancelEdit(); }
+}
+
+function commitEdit(id) {
+  const nome = (document.getElementById('e-nome')?.value || '').trim();
+  if (!nome) { document.getElementById('e-nome')?.focus(); return; }
+  const idx = guests.findIndex(g => g.id === id);
+  if (idx >= 0) {
+    guests[idx] = {
+      ...guests[idx],
+      nome,
+      lado:        document.getElementById('e-lado').value,
+      grupo:       (document.getElementById('e-grupo').value || '').trim(),
+      status:      document.getElementById('e-status').value,
+      chance:      document.getElementById('e-chance').value,
+      tipo:        document.getElementById('e-tipo').value,
+      observacoes: (document.getElementById('e-obs').value || '').trim(),
+    };
+  }
+  editingId = null;
+  save();
+  render();
+}
+
+function cancelEdit() {
+  editingId = null;
+  render();
+}
+
+// ─── Delete ───────────────────────────────────────────────────────────────────
+function deleteGuest(id) {
+  const g = guests.find(x => x.id === id);
+  if (!g) return;
+  if (!confirm(`Remover "${g.nome}" da lista?`)) return;
+  guests = guests.filter(x => x.id !== id);
+  save();
+  render();
+}
+
+// ─── Badge helpers ────────────────────────────────────────────────────────────
+function statusBadge(s) {
+  if (s === 'Confirmado')       return 'badge-confirmado';
+  if (s === 'A confirmar')      return 'badge-a-confirmar';
+  if (s === 'Pensar em chamar') return 'badge-pensar';
+  return '';
+}
+function chanceBadge(c) {
+  if (c === 'Alta')  return 'badge-alta';
+  if (c === 'Média') return 'badge-media';
+  if (c === 'Baixa') return 'badge-baixa';
+  return '';
+}
+
+// ─── Sort ─────────────────────────────────────────────────────────────────────
+function sortBy(col) {
+  if (sortCol === col) sortDir *= -1;
+  else { sortCol = col; sortDir = 1; }
+  render();
+}
+
+// ─── Filters ──────────────────────────────────────────────────────────────────
+function clearFilters() {
+  ['search','filterLado','filterGrupo','filterStatus','filterChance','filterTipo']
+    .forEach(id => document.getElementById(id).value = '');
+  render();
+}
+
+function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+// ─── Import / Export ──────────────────────────────────────────────────────────
+function openImportModal() {
+  document.getElementById('importFile').value = '';
+  document.getElementById('importModal').classList.remove('hidden');
+}
+
+function handleImport(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!Array.isArray(data)) throw new Error('inválido');
+      guests = data;
+      save();
+      closeModal('importModal');
+      render();
+    } catch { alert('Arquivo inválido.'); }
+  };
+  reader.readAsText(file);
+}
+
+function exportJSON() {
+  downloadBlob(new Blob([JSON.stringify(guests, null, 2)], { type: 'application/json' }), 'convidados.json');
+}
+
+function exportCSV() {
+  const headers = ['ID','Nome','Lado','Grupo','Status','Chance','Tipo','Observações'];
+  const rows = guests.map(g => [g.id,g.nome,g.lado,g.grupo,g.status,g.chance,g.tipo,g.observacoes]
+    .map(v => `"${String(v||'').replace(/"/g,'""')}"`));
+  downloadBlob(
+    new Blob(['﻿' + [headers.join(','), ...rows.map(r=>r.join(','))].join('\n')], { type: 'text/csv;charset=utf-8;' }),
+    'convidados.csv'
+  );
+}
+
+function downloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = Object.assign(document.createElement('a'), { href: url, download: filename });
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ── Close import modal on backdrop / Escape ───────────────────────────────────
+document.getElementById('importModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('importModal'))
+    closeModal('importModal');
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal('importModal');
+});
+</script>
+</body>
+</html>
