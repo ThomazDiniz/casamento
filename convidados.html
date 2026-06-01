@@ -445,6 +445,7 @@
     <button class="btn btn-secondary" onclick="openImportModal()">⬆ Importar JSON</button>
     <button class="btn btn-secondary" onclick="exportCSV()">⬇ Exportar CSV</button>
     <button class="btn btn-secondary" onclick="exportJSON()">⬇ Exportar JSON</button>
+    <button class="btn btn-secondary" style="border-color:rgba(255,100,100,0.5);" onclick="resetToFile()">↺ Recarregar arquivo</button>
   </div>
 </header>
 
@@ -1291,6 +1292,21 @@ function handleImport(event) {
     } catch { alert('Arquivo inválido.'); }
   };
   reader.readAsText(file);
+}
+
+async function resetToFile() {
+  if (!confirm('Apagar tudo que está salvo no navegador e recarregar só o convidados.json?')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  try {
+    const res = await fetch('convidados.json');
+    if (!res.ok) throw new Error();
+    guests = await res.json();
+  } catch(e) {
+    alert('Não foi possível carregar convidados.json. Certifique-se de abrir a página por um servidor local ou pelo GitHub Pages.');
+    return;
+  }
+  save();
+  render();
 }
 
 function exportJSON() {
