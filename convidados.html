@@ -479,6 +479,33 @@
   <button class="btn btn-sm" style="background:#edf4f0;color:#2f5d45;" onclick="clearFilters()">Limpar filtros</button>
 </div>
 
+<div class="table-section">
+  <div class="section-title" style="padding-bottom:12px;">Lista Completa
+    <span id="filterIndicator" style="font-size:0.7rem;color:#4a7c62;margin-left:8px;font-weight:400;text-transform:none;letter-spacing:0;"></span>
+  </div>
+  <table id="table">
+    <thead>
+      <tr>
+        <th onclick="sortBy('nome')">Nome</th>
+        <th onclick="sortBy('lado')">Lado</th>
+        <th onclick="sortBy('grupo')">Grupo</th>
+        <th onclick="sortBy('status')">Status</th>
+        <th onclick="sortBy('chance')">Chance</th>
+        <th onclick="sortBy('tipo')">Tipo</th>
+        <th>Observações</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <div id="empty" class="empty-state hidden">
+    <div style="font-size:2.5rem">🔍</div>
+    <p>Nenhum convidado encontrado com esses filtros.</p>
+  </div>
+</div>
+
+<datalist id="grupos-list"></datalist>
+
 <!-- ═══════════════════════════ DASHBOARD ═══════════════════════════ -->
 <div class="dashboard">
 
@@ -572,34 +599,6 @@
   </div>
 
 </div>
-<!-- ════════════════════════════════════════════════════════════════ -->
-
-<div class="table-section">
-  <div class="section-title" style="padding-bottom:12px;">Lista Completa
-    <span id="filterIndicator" style="font-size:0.7rem;color:#4a7c62;margin-left:8px;font-weight:400;text-transform:none;letter-spacing:0;"></span>
-  </div>
-  <table id="table">
-    <thead>
-      <tr>
-        <th onclick="sortBy('nome')">Nome</th>
-        <th onclick="sortBy('lado')">Lado</th>
-        <th onclick="sortBy('grupo')">Grupo</th>
-        <th onclick="sortBy('status')">Status</th>
-        <th onclick="sortBy('chance')">Chance</th>
-        <th onclick="sortBy('tipo')">Tipo</th>
-        <th>Observações</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody id="tbody"></tbody>
-  </table>
-  <div id="empty" class="empty-state hidden">
-    <div style="font-size:2.5rem">🔍</div>
-    <p>Nenhum convidado encontrado com esses filtros.</p>
-  </div>
-</div>
-
-<datalist id="grupos-list"></datalist>
 
 <!-- ── Import Modal ── -->
 <div class="modal-backdrop hidden" id="importModal">
