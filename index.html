@@ -339,7 +339,7 @@
     .reveal-d2 { transition-delay: .28s; }
 
     /* ── PRINT ─────────────────────────────────────────────────── */
-    @page { margin: 0; }
+    @page { margin: 0; size: auto; }
     @media print {
       * {
         -webkit-print-color-adjust: exact !important;
@@ -348,6 +348,17 @@
       .scroll-cue { display: none; }
       .pix-copy-btn { display: none; }
       .pix-print-link { display: inline-block !important; }
+
+      /* Reduz espaçamentos gerais */
+      #presente, #rsvp, .biblia-content { padding: 2rem 1.5rem !important; }
+      .hero { padding: 3rem 2rem !important; }
+      .presente-heading, .rsvp-heading { font-size: 1.6rem !important; }
+      .presente-texto { margin-bottom: 1.5rem !important; line-height: 1.6 !important; }
+      .presente-rule { margin: 0 auto 1.25rem !important; }
+      .presente-closing { margin-top: 1.25rem !important; }
+      .pix-feedback { margin-top: 0.5rem !important; }
+      .hero-locais { margin-top: 1.5rem !important; }
+      nav { padding: 1rem 2rem !important; }
     }
 
     /* ── MOBILE ────────────────────────────────────────────────── */
