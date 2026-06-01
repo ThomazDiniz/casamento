@@ -31,13 +31,11 @@
         { "hora": "09:50h", "descricao": "Rito do Matrimônio." },
         { "hora": "09:55h", "descricao": "Troca das alianças." },
         { "hora": "10:00h", "descricao": "Bênção nupcial." },
-        { "hora": "10:05h", "descricao": "Comunhão Eucarística (caso a celebração seja realizada dentro da Santa Missa)." },
         { "hora": "10:15h", "descricao": "Assinatura dos documentos pelos noivos e testemunhas." },
-        { "hora": "10:25h", "descricao": "Consagração do casal à Nossa Senhora e entrega do buquê.", "opcional": true },
         { "hora": "10:30h", "descricao": "Bênção final." },
         { "hora": "10:35h", "descricao": "Apresentação oficial do casal e beijo dos noivos." },
-        { "hora": "10:40h", "descricao": "Saída dos noivos." },
-        { "hora": "10:45h", "descricao": "Saída dos pais, padrinhos, daminhas e pajens." },
+        { "hora": "10:40h", "descricao": "Saída dos noivos + fotos na saída." },
+        { "hora": "10:45h", "descricao": "Saída dos pais, padrinhos, daminhas e pajens + fotos na saída." },
         { "hora": "10:50h", "descricao": "Jogo do buquê na área externa da igreja.", "opcional": true }
       ]
     },
