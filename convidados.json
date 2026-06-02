@@ -30,16 +30,6 @@
     "observacoes": ""
   },
   {
-    "id": 4,
-    "nome": "Padrinho Nereu",
-    "lado": "Thomaz",
-    "grupo": "Família",
-    "status": "Confirmado",
-    "chance": "Alta",
-    "tipo": "Adulto",
-    "observacoes": ""
-  },
-  {
     "id": 5,
     "nome": "Marina Diniz",
     "lado": "Thomaz",
@@ -373,51 +363,51 @@
     "id": 9,
     "nome": "Francisco Nereu",
     "lado": "Thomaz",
-    "grupo": "Família",
+    "grupo": "Família de thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Tio e padrinho do noivo"
   },
   {
     "id": 10,
     "nome": "Terezinha",
     "lado": "Thomaz",
-    "grupo": "Família",
+    "grupo": "Família de thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Tia do noivo e esposa de Nereu"
   },
   {
     "id": 11,
     "nome": "Amaralina",
     "lado": "Thomaz",
-    "grupo": "Família",
+    "grupo": "Família de thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "prima do noivo, filha de gil"
   },
   {
     "id": 12,
     "nome": "Amadeus",
     "lado": "Thomaz",
-    "grupo": "Família",
+    "grupo": "Família de thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Primo do noivo, filho de gil"
   },
   {
     "id": 13,
     "nome": "Arthur",
     "lado": "Thomaz",
-    "grupo": "Família",
+    "grupo": "Família de thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Primo de Thomaz, filho de Gil"
   },
   {
     "id": 14,
@@ -453,7 +443,7 @@
     "id": 16,
     "nome": "Camila Urbano",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de Recife de Thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -467,13 +457,13 @@
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Confirmar nome"
   },
   {
     "id": 18,
     "nome": "Danrley",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de Recife de Thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -487,7 +477,7 @@
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Confirmar nome"
   },
   {
     "id": 20,
@@ -497,13 +487,13 @@
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Criança",
-    "observacoes": ""
+    "observacoes": "Confirmar nome e idade"
   },
   {
     "id": 21,
     "nome": "Felipe Marcassa",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de SSA de Thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -513,7 +503,7 @@
     "id": 22,
     "nome": "Vitor Camargo",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de SSA de Thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -533,7 +523,7 @@
     "id": 24,
     "nome": "Caio Valdoveste",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de SSA de Thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -543,7 +533,7 @@
     "id": 25,
     "nome": "George Olivier",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de SSA de Thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -563,17 +553,17 @@
     "id": 27,
     "nome": "Amanda Luna",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de Thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "esposa de gustavo"
   },
   {
     "id": 28,
     "nome": "Teteu (Matheus)",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de SSA de Thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -583,7 +573,7 @@
     "id": 29,
     "nome": "Ariel",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de SSA de Thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -593,9 +583,9 @@
     "id": 30,
     "nome": "Frob (Matheus)",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de SSA de Thomaz",
     "status": "Confirmado",
-    "chance": "Alta",
+    "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
   },
@@ -607,7 +597,7 @@
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Irmão do noivo e padrinho do casamento"
   },
   {
     "id": 41,
@@ -617,7 +607,7 @@
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Noiva de Matheus diniz"
   },
   {
     "id": 42,
@@ -633,11 +623,11 @@
     "id": 44,
     "nome": "Natércia",
     "lado": "Thomaz",
-    "grupo": "Família",
+    "grupo": "Família de thomaz",
     "status": "A confirmar",
-    "chance": "",
+    "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Esposa do falecido pai do noivo"
   },
   {
     "id": 45,
@@ -655,9 +645,9 @@
     "lado": "Thomaz",
     "grupo": "Amigos da Nintendo",
     "status": "A confirmar",
-    "chance": "",
+    "chance": "Média",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Esposo de dani"
   },
   {
     "id": 47,
@@ -665,17 +655,17 @@
     "lado": "Thomaz",
     "grupo": "Amigos da Nintendo",
     "status": "A confirmar",
-    "chance": "",
+    "chance": "Média",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Esposa de Alvino"
   },
   {
     "id": 78,
     "nome": "Antonio Maieron Junior (Tony)",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de SSA de Thomaz",
     "status": "A confirmar",
-    "chance": "Alta",
+    "chance": "Média",
     "tipo": "Adulto",
     "observacoes": ""
   },
@@ -683,9 +673,9 @@
     "id": 79,
     "nome": "André (Gounter)",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de SSA de Thomaz",
     "status": "A confirmar",
-    "chance": "Alta",
+    "chance": "Média",
     "tipo": "Adulto",
     "observacoes": ""
   },
@@ -693,9 +683,9 @@
     "id": 31,
     "nome": "David",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Amigos de Thomaz",
     "status": "A confirmar",
-    "chance": "Alta",
+    "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
   },
@@ -703,9 +693,9 @@
     "id": 32,
     "nome": "Suzy",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Família de thomaz",
     "status": "A confirmar",
-    "chance": "Alta",
+    "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
   },
@@ -713,47 +703,47 @@
     "id": 33,
     "nome": "Francisco Carlos",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Família de thomaz",
     "status": "A confirmar",
     "chance": "Alta",
     "tipo": "Adulto",
-    "observacoes": ""
+    "observacoes": "Tio do noivo"
   },
   {
     "id": 34,
     "nome": "Vitor",
     "lado": "Thomaz",
-    "grupo": "Amigos",
-    "status": "A confirmar",
-    "chance": "Alta",
-    "tipo": "Adulto",
-    "observacoes": ""
-  },
-  {
-    "id": 35,
-    "nome": "Simone",
-    "lado": "Thomaz",
-    "grupo": "Amigos",
-    "status": "A confirmar",
-    "chance": "Alta",
-    "tipo": "Adulto",
-    "observacoes": ""
-  },
-  {
-    "id": 36,
-    "nome": "Caio (Primo do noivo)",
-    "lado": "Thomaz",
-    "grupo": "Família",
+    "grupo": "Família de thomaz",
     "status": "A confirmar",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Primo do noivo"
   },
   {
-    "id": 37,
-    "nome": "Danielita",
+    "id": 35,
+    "nome": "Simone",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Família de thomaz",
+    "status": "A confirmar",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": "Esposa de Carlos"
+  },
+  {
+    "id": 36,
+    "nome": "Caio (Primo do noivo)",
+    "lado": "Thomaz",
+    "grupo": "Família de thomaz",
+    "status": "A confirmar",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": "Primo do noivo, filho de Carlos"
+  },
+  {
+    "id": 37,
+    "nome": "Danielita (Tia)",
+    "lado": "Thomaz",
+    "grupo": "Família de thomaz",
     "status": "A confirmar",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -763,7 +753,7 @@
     "id": 38,
     "nome": "Dora",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Família de thomaz",
     "status": "A confirmar",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -771,9 +761,9 @@
   },
   {
     "id": 39,
-    "nome": "Daniel",
+    "nome": "Daniel (Tio)",
     "lado": "Thomaz",
-    "grupo": "Amigos",
+    "grupo": "Família de thomaz",
     "status": "A confirmar",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -798,5 +788,15 @@
     "chance": "Alta",
     "tipo": "Criança",
     "observacoes": "É um bebê não sei se paga na recepção."
+  },
+  {
+    "id": 82,
+    "nome": "Esposa de Teteu(Matheus)",
+    "lado": "Thomaz",
+    "grupo": "Amigos de SSA de Thomaz",
+    "status": "A confirmar",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": "Esposa de Matheus, Teteu, confirmar nome"
   }
 ]
