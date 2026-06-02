@@ -780,6 +780,16 @@
     "observacoes": ""
   },
   {
+    "id": 81,
+    "nome": "Geruza",
+    "lado": "Thomaz",
+    "grupo": "Amigos de Thomaz",
+    "status": "A confirmar",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": "Amiga de Lúcia"
+  },
+  {
     "id": 80,
     "nome": "Liz",
     "lado": "Joana",
