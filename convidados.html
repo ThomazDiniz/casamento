@@ -286,6 +286,7 @@
     .badge-confirmado  { background: #d1fae5; color: #065f46; }
     .badge-a-confirmar { background: #fef3c7; color: #92400e; }
     .badge-pensar      { background: #f3f4f6; color: #374151; }
+    .badge-nao-vai     { background: #fee2e2; color: #7f1d1d; text-decoration: line-through; opacity: 0.75; }
     .badge-alta        { background: #d1fae5; color: #065f46; }
     .badge-media       { background: #fef3c7; color: #92400e; }
     .badge-baixa       { background: #fee2e2; color: #991b1b; }
@@ -463,6 +464,7 @@
     <option value="">Todos os status</option>
     <option value="Confirmado">Confirmado</option>
     <option value="A confirmar">A confirmar</option>
+    <option value="Confirmou que não vai">Confirmou que não vai</option>
     <option value="Pensar em chamar">Pensar em chamar</option>
   </select>
   <select id="filterChance" onchange="render()">
@@ -809,6 +811,7 @@ function renderAddRow() {
       <option value="Pensar em chamar">Pensar em chamar</option>
       <option value="A confirmar">A confirmar</option>
       <option value="Confirmado">Confirmado</option>
+      <option value="Confirmou que não vai">Confirmou que não vai</option>
     </select></td>
     <td><select class="ir-select" id="new-chance" onkeydown="addRowKey(event)">
       <option value="">—</option>
@@ -839,9 +842,10 @@ function renderEditRow(g) {
     <td><input class="ir-input" id="e-grupo" value="${esc(g.grupo||'')}" type="text" list="grupos-list"
       onkeydown="editRowKey(event,${g.id})" /></td>
     <td><select class="ir-select" id="e-status" onkeydown="editRowKey(event,${g.id})">
-      <option value="Pensar em chamar" ${g.status==='Pensar em chamar'?'selected':''}>Pensar em chamar</option>
-      <option value="A confirmar"      ${g.status==='A confirmar'?'selected':''}>A confirmar</option>
-      <option value="Confirmado"       ${g.status==='Confirmado'?'selected':''}>Confirmado</option>
+      <option value="Pensar em chamar"       ${g.status==='Pensar em chamar'?'selected':''}>Pensar em chamar</option>
+      <option value="A confirmar"            ${g.status==='A confirmar'?'selected':''}>A confirmar</option>
+      <option value="Confirmado"             ${g.status==='Confirmado'?'selected':''}>Confirmado</option>
+      <option value="Confirmou que não vai"  ${g.status==='Confirmou que não vai'?'selected':''}>Confirmou que não vai</option>
     </select></td>
     <td><select class="ir-select" id="e-chance" onkeydown="editRowKey(event,${g.id})">
       <option value=""      ${!g.chance?'selected':''}>—</option>
@@ -864,7 +868,9 @@ function renderEditRow(g) {
 
 // ─── Dashboard ────────────────────────────────────────────────────────────────
 function renderDashboard() {
-  const g = guests;
+  const todos       = guests;
+  const naoVai      = todos.filter(x => x.status === 'Confirmou que não vai');
+  const g           = todos.filter(x => x.status !== 'Confirmou que não vai'); // ativos (contagem real)
   const total       = g.length;
   const confirmados = g.filter(x => x.status === 'Confirmado').length;
   const aConfirmar  = g.filter(x => x.status === 'A confirmar').length;
@@ -905,6 +911,7 @@ function renderDashboard() {
         <span style="color:#f5a623;">■ A confirmar ${aConfirmar}</span>
         <span style="color:#9ca3af;">■ Pensar ${pensar}</span>
         <span style="color:#b8d0c8;">■ Vagas livres ${Math.max(vagas,0)}</span>
+        ${naoVai.length > 0 ? `<span style="color:#ef4444;">✗ Não vão ${naoVai.length} (excluídos)</span>` : ''}
       </div>
     </div>
 
@@ -927,6 +934,11 @@ function renderDashboard() {
       <div class="kpi-label">Não conf.</div>
       <div class="kpi-value">${naoConf}</div>
       <div class="kpi-sub">pendentes</div>
+    </div>
+    <div class="kpi-card" style="border-left-color:#7f1d1d;opacity:0.8;">
+      <div class="kpi-label">Não vão</div>
+      <div class="kpi-value" style="color:#7f1d1d;">${naoVai.length}</div>
+      <div class="kpi-sub">excluídos da contagem</div>
     </div>
     <div class="kpi-card blue">
       <div class="kpi-label">Thomaz</div>
@@ -958,9 +970,9 @@ function renderDashboard() {
   mkChart('chartStatus', {
     type: 'doughnut',
     data: {
-      labels: ['Confirmado', 'A confirmar', 'Pensar em chamar'],
-      datasets: [{ data: [confirmados, aConfirmar, pensar],
-        backgroundColor: [C.confirmado, C.aConfirmar, C.pensar],
+      labels: ['Confirmado', 'A confirmar', 'Pensar em chamar', 'Confirmou que não vai'],
+      datasets: [{ data: [confirmados, aConfirmar, pensar, naoVai.length],
+        backgroundColor: [C.confirmado, C.aConfirmar, C.pensar, '#fca5a5'],
         borderWidth: 2, borderColor: '#fff' }]
     },
     options: donutOpts('Status')
@@ -1021,6 +1033,7 @@ function renderDashboard() {
           borderRadius: 6,
         }
       ]
+      // Nota: "Confirmou que não vai" excluídos desta visão propositalmente
     },
     options: {
       responsive: true,
@@ -1243,9 +1256,10 @@ function deleteGuest(id) {
 
 // ─── Badge helpers ────────────────────────────────────────────────────────────
 function statusBadge(s) {
-  if (s === 'Confirmado')       return 'badge-confirmado';
-  if (s === 'A confirmar')      return 'badge-a-confirmar';
-  if (s === 'Pensar em chamar') return 'badge-pensar';
+  if (s === 'Confirmado')              return 'badge-confirmado';
+  if (s === 'A confirmar')             return 'badge-a-confirmar';
+  if (s === 'Pensar em chamar')        return 'badge-pensar';
+  if (s === 'Confirmou que não vai')   return 'badge-nao-vai';
   return '';
 }
 function chanceBadge(c) {
