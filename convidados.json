@@ -384,7 +384,7 @@
     "nome": "Amaralina",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "Confirmado",
+    "status": "A confirmar",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "prima do noivo, filha de gil"
@@ -394,7 +394,7 @@
     "nome": "Amadeus",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "Confirmado",
+    "status": "A confirmar",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Primo do noivo, filho de gil"
@@ -404,7 +404,7 @@
     "nome": "Arthur",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "Confirmado",
+    "status": "A confirmar",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Primo de Thomaz, filho de Gil"
@@ -413,8 +413,8 @@
     "id": 14,
     "nome": "Givanilda",
     "lado": "Thomaz",
-    "grupo": "Família",
-    "status": "Confirmado",
+    "grupo": "Família de thomaz",
+    "status": "A confirmar",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -423,7 +423,7 @@
     "id": 43,
     "nome": "Marina Magalhães",
     "lado": "Thomaz",
-    "grupo": "Família",
+    "grupo": "Família de thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -433,7 +433,7 @@
     "id": 15,
     "nome": "Kássio",
     "lado": "Thomaz",
-    "grupo": "Família",
+    "grupo": "Família de thomaz",
     "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
@@ -624,7 +624,7 @@
     "nome": "Natércia",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Esposa do falecido pai do noivo"
@@ -665,7 +665,7 @@
     "lado": "Thomaz",
     "grupo": "Amigos de SSA de Thomaz",
     "status": "A confirmar",
-    "chance": "Média",
+    "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
   },
@@ -684,7 +684,7 @@
     "nome": "David",
     "lado": "Thomaz",
     "grupo": "Amigos de Thomaz",
-    "status": "A confirmar",
+    "status": "Confirmou que não vai",
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
@@ -693,8 +693,8 @@
     "id": 32,
     "nome": "Suzy",
     "lado": "Thomaz",
-    "grupo": "Família de thomaz",
-    "status": "A confirmar",
+    "grupo": "Amigos de Thomaz",
+    "status": "Confirmou que não vai",
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
@@ -744,7 +744,7 @@
     "nome": "Danielita (Tia)",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -754,7 +754,7 @@
     "nome": "Dora",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -774,7 +774,7 @@
     "nome": "Geruza Cabral de Santana",
     "lado": "Thomaz",
     "grupo": "Amigos de Thomaz",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Amiga de Lúcia"
@@ -798,5 +798,25 @@
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Esposa de Matheus, Teteu, confirmar nome"
+  },
+  {
+    "id": 83,
+    "nome": "Taciana",
+    "lado": "Thomaz",
+    "grupo": "Família de thomaz",
+    "status": "Confirmado",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": "Prima de Thomaz"
+  },
+  {
+    "id": 84,
+    "nome": "Rebeca (Morbi)",
+    "lado": "Thomaz",
+    "grupo": "Amigos de Thomaz",
+    "status": "A confirmar",
+    "chance": "Baixa",
+    "tipo": "Adulto",
+    "observacoes": "Namorada de Frob"
   }
 ]
