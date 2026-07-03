@@ -234,7 +234,7 @@
     "nome": "Yure",
     "lado": "Joana",
     "grupo": "Amigos de Joana",
-    "status": "A confirmar",
+    "status": "Confirmou que não vai",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Namorado de Alane"
@@ -304,7 +304,7 @@
     "nome": "Rian",
     "lado": "Joana",
     "grupo": "Amigos de Joana",
-    "status": "A confirmar",
+    "status": "Confirmou que não vai",
     "chance": "Média",
     "tipo": "Adulto",
     "observacoes": "Namorado de milene"
@@ -584,7 +584,7 @@
     "nome": "Frob (Matheus)",
     "lado": "Thomaz",
     "grupo": "Amigos de SSA de Thomaz",
-    "status": "A confirmar",
+    "status": "Confirmou que não vai",
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
@@ -704,7 +704,7 @@
     "nome": "Francisco Carlos",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Tio do noivo"
@@ -714,7 +714,7 @@
     "nome": "Vitor",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Primo do noivo"
@@ -724,7 +724,7 @@
     "nome": "Simone",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Esposa de Carlos"
@@ -734,7 +734,7 @@
     "nome": "Caio (Primo do noivo)",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Primo do noivo, filho de Carlos"
@@ -814,7 +814,7 @@
     "nome": "Rebeca (Morbi)",
     "lado": "Thomaz",
     "grupo": "Amigos de Thomaz",
-    "status": "A confirmar",
+    "status": "Confirmou que não vai",
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": "Namorada de Frob"
