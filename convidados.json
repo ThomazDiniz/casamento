@@ -84,7 +84,7 @@
     "nome": "Mariana",
     "lado": "Joana",
     "grupo": "Família de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -94,7 +94,7 @@
     "nome": "Junior",
     "lado": "Joana",
     "grupo": "Família de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -104,7 +104,7 @@
     "nome": "Edith",
     "lado": "Joana",
     "grupo": "Família de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Criança",
     "observacoes": ""
@@ -114,7 +114,7 @@
     "nome": "Sávio",
     "lado": "Joana",
     "grupo": "Família de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Criança",
     "observacoes": ""
@@ -144,7 +144,7 @@
     "nome": "Anny",
     "lado": "Joana",
     "grupo": "Família de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -164,7 +164,7 @@
     "nome": "Tia Leo",
     "lado": "Joana",
     "grupo": "Família de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -184,7 +184,7 @@
     "nome": "Dona Reni",
     "lado": "Joana",
     "grupo": "Amigos de Joana",
-    "status": "A confirmar",
+    "status": "Pensar em chamar",
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
@@ -194,7 +194,7 @@
     "nome": "Geane",
     "lado": "Joana",
     "grupo": "Amigos de Joana",
-    "status": "A confirmar",
+    "status": "Pensar em chamar",
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
@@ -224,7 +224,7 @@
     "nome": "Alane",
     "lado": "Joana",
     "grupo": "Amigos de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -244,7 +244,7 @@
     "nome": "Carol Queiroz",
     "lado": "Joana",
     "grupo": "Amigos",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -294,7 +294,7 @@
     "nome": "Milene",
     "lado": "Joana",
     "grupo": "Amigos de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -354,7 +354,7 @@
     "nome": "Bianca",
     "lado": "Joana",
     "grupo": "Amigos de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -780,16 +780,6 @@
     "observacoes": "Amiga de Lúcia"
   },
   {
-    "id": 80,
-    "nome": "Liz",
-    "lado": "Joana",
-    "grupo": "Amigos de Joana",
-    "status": "A confirmar",
-    "chance": "Alta",
-    "tipo": "Criança",
-    "observacoes": "É um bebê não sei se paga na recepção."
-  },
-  {
     "id": 82,
     "nome": "Sandrine Lima Souza (Teteu)",
     "lado": "Thomaz",
@@ -818,5 +808,85 @@
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": "Namorada de Frob"
+  },
+  {
+    "id": 85,
+    "nome": "Emily",
+    "lado": "Joana",
+    "grupo": "Família de Joana",
+    "status": "A confirmar",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": ""
+  },
+  {
+    "id": 86,
+    "nome": "João / Teo",
+    "lado": "Joana",
+    "grupo": "Família de Joana",
+    "status": "A confirmar",
+    "chance": "Baixa",
+    "tipo": "Adulto",
+    "observacoes": ""
+  },
+  {
+    "id": 87,
+    "nome": "Nilce (Esposa de Teo)",
+    "lado": "Joana",
+    "grupo": "Família de thomaz",
+    "status": "A confirmar",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": ""
+  },
+  {
+    "id": 88,
+    "nome": "Fernanda",
+    "lado": "Joana",
+    "grupo": "Amigos de Joana",
+    "status": "A confirmar",
+    "chance": "Baixa",
+    "tipo": "Adulto",
+    "observacoes": ""
+  },
+  {
+    "id": 89,
+    "nome": "Ana Paula",
+    "lado": "Joana",
+    "grupo": "Amigos de Joana",
+    "status": "Confirmou que não vai",
+    "chance": "Média",
+    "tipo": "Adulto",
+    "observacoes": ""
+  },
+  {
+    "id": 90,
+    "nome": "Adriana",
+    "lado": "Joana",
+    "grupo": "Amigos de Joana",
+    "status": "A confirmar",
+    "chance": "Média",
+    "tipo": "Adulto",
+    "observacoes": ""
+  },
+  {
+    "id": 91,
+    "nome": "Maurício",
+    "lado": "Joana",
+    "grupo": "Amigos de Joana",
+    "status": "A confirmar",
+    "chance": "Baixa",
+    "tipo": "Adulto",
+    "observacoes": "Marido de Adriana"
+  },
+  {
+    "id": 92,
+    "nome": "Pedro",
+    "lado": "Joana",
+    "grupo": "Amigos de Joana",
+    "status": "A confirmar",
+    "chance": "Baixa",
+    "tipo": "Adulto",
+    "observacoes": "Filho de Adriana"
   }
 ]
