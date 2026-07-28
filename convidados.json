@@ -888,5 +888,25 @@
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": "Filho de Adriana"
+  },
+  {
+    "id": 93,
+    "nome": "Danilo Katzaroff",
+    "lado": "Thomaz",
+    "grupo": "Amigos de Thomaz",
+    "status": "Confirmado",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": ""
+  },
+  {
+    "id": 94,
+    "nome": "Namorada de Danilo Katzaroff",
+    "lado": "Thomaz",
+    "grupo": "Amigos",
+    "status": "Confirmado",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": "Namorada de Danilo Katzaroff"
   }
 ]
