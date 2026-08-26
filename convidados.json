@@ -908,5 +908,25 @@
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Namorada de Danilo Katzaroff"
+  },
+  {
+    "id": 95,
+    "nome": "Wesley de Souza Nunes",
+    "lado": "Joana",
+    "grupo": "Amigos de Joana",
+    "status": "Confirmado",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": ""
+  },
+  {
+    "id": 96,
+    "nome": "Roseane Almeida Gomes",
+    "lado": "Joana",
+    "grupo": "Amigos de Joana",
+    "status": "Confirmado",
+    "chance": "Alta",
+    "tipo": "Adulto",
+    "observacoes": ""
   }
 ]
