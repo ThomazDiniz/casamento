@@ -174,7 +174,7 @@
     "nome": "Tio Ed",
     "lado": "Joana",
     "grupo": "Família de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -184,7 +184,7 @@
     "nome": "Dona Reni",
     "lado": "Joana",
     "grupo": "Amigos de Joana",
-    "status": "Pensar em chamar",
+    "status": "Confirmou que não vai",
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
@@ -194,7 +194,7 @@
     "nome": "Geane",
     "lado": "Joana",
     "grupo": "Amigos de Joana",
-    "status": "Pensar em chamar",
+    "status": "Confirmou que não vai",
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
@@ -254,7 +254,7 @@
     "nome": "Vinicius",
     "lado": "Joana",
     "grupo": "Amigos",
-    "status": "A confirmar",
+    "status": "Confirmou que não vai",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -814,7 +814,7 @@
     "nome": "Emily",
     "lado": "Joana",
     "grupo": "Família de Joana",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -824,7 +824,7 @@
     "nome": "João / Teo",
     "lado": "Joana",
     "grupo": "Família de Joana",
-    "status": "A confirmar",
+    "status": "Confirmou que não vai",
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
@@ -834,7 +834,7 @@
     "nome": "Nilce (Esposa de Teo)",
     "lado": "Joana",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
+    "status": "Confirmou que não vai",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -844,7 +844,7 @@
     "nome": "Fernanda",
     "lado": "Joana",
     "grupo": "Amigos de Joana",
-    "status": "A confirmar",
+    "status": "Confirmou que não vai",
     "chance": "Baixa",
     "tipo": "Adulto",
     "observacoes": ""
