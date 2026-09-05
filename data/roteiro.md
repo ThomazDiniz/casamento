@@ -31,7 +31,7 @@ Igreja Santo Antônio de Lisboa – Tambaú
 | 09:00h | Entrada dos padrinhos. |
 | 09:05h | Entrada dos pais do noivo. |
 | 09:07h | Entrada dos pais da noiva. |
-| 09:10h | Entrada do noivo acompanhado da mãe. |
+| 09:10h | Entrada do noivo (Thomaz), sozinho. |
 | 09:12h | Entrada das daminhas e pajens. |
 | 09:15h | Entrada da noiva acompanhada do pai. |
 | 09:20h | Início da celebração pelo padre. |

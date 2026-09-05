@@ -20,47 +20,128 @@
     {
       "titulo": "Cerimônia",
       "itens": [
-        { "hora": "10:00h", "descricao": "Entrada dos padrinhos — Matheus e Lunna juntos." },
-        { "hora": "10:05h", "descricao": "Entrada da mãe do noivo e tio do noivo (Janice e Nereu)." },
-        { "hora": "10:10h", "descricao": "Entrada do noivo acompanhado da tia Francisca Lucia." },
-        { "hora": "10:12h", "descricao": "Entrada das daminhas e pajens." },
-        { "hora": "10:15h", "descricao": "Entrada da noiva acompanhada do pai." },
-        { "hora": "10:20h", "descricao": "Início da celebração pelo padre." },
-        { "hora": "10:25h", "descricao": "Liturgia da Palavra (leituras, salmo, evangelho e homilia)." },
-        { "hora": "10:50h", "descricao": "Rito do Matrimônio." },
-        { "hora": "10:55h", "descricao": "Troca das alianças." },
-        { "hora": "11:00h", "descricao": "Bênção nupcial." },
-        { "hora": "11:15h", "descricao": "Assinatura dos documentos pelos noivos e testemunhas." },
-        { "hora": "11:30h", "descricao": "Bênção final." },
-        { "hora": "11:35h", "descricao": "Apresentação oficial do casal e beijo dos noivos." },
-        { "hora": "11:40h", "descricao": "Saída dos noivos + fotos na saída." },
-        { "hora": "11:45h", "descricao": "Saída dos pais, padrinhos, daminhas e pajens + fotos na saída." },
-        { "hora": "11:50h", "descricao": "Jogo do buquê na área externa da igreja.", "opcional": true }
+        {
+          "hora": "10:00h",
+          "descricao": "Entrada dos padrinhos — Matheus e Lunna juntos."
+        },
+        {
+          "hora": "10:05h",
+          "descricao": "Entrada da mãe do noivo e tio do noivo (Janice e Nereu)."
+        },
+        {
+          "hora": "10:10h",
+          "descricao": "Entrada do noivo (Thomaz), sozinho."
+        },
+        {
+          "hora": "10:12h",
+          "descricao": "Entrada das daminhas e pajens."
+        },
+        {
+          "hora": "10:15h",
+          "descricao": "Entrada da noiva acompanhada do pai."
+        },
+        {
+          "hora": "10:20h",
+          "descricao": "Início da celebração pelo padre."
+        },
+        {
+          "hora": "10:25h",
+          "descricao": "Liturgia da Palavra (leituras, salmo, evangelho e homilia)."
+        },
+        {
+          "hora": "10:50h",
+          "descricao": "Rito do Matrimônio."
+        },
+        {
+          "hora": "10:55h",
+          "descricao": "Troca das alianças."
+        },
+        {
+          "hora": "11:00h",
+          "descricao": "Bênção nupcial."
+        },
+        {
+          "hora": "11:15h",
+          "descricao": "Assinatura dos documentos pelos noivos e testemunhas."
+        },
+        {
+          "hora": "11:30h",
+          "descricao": "Bênção final."
+        },
+        {
+          "hora": "11:35h",
+          "descricao": "Apresentação oficial do casal e beijo dos noivos."
+        },
+        {
+          "hora": "11:40h",
+          "descricao": "Saída dos noivos + fotos na saída."
+        },
+        {
+          "hora": "11:45h",
+          "descricao": "Saída dos pais, padrinhos, daminhas e pajens + fotos na saída."
+        },
+        {
+          "hora": "11:50h",
+          "descricao": "Jogo do buquê na área externa da igreja.",
+          "opcional": true
+        }
       ]
     },
     {
       "titulo": "Fotos",
       "itens": [
-        { "hora": "12:00h às 12:20h", "descricao": "Fotos com familiares, padrinhos e convidados na igreja." }
+        {
+          "hora": "12:00h às 12:20h",
+          "descricao": "Fotos com familiares, padrinhos e convidados na igreja."
+        }
       ]
     },
     {
       "titulo": "Deslocamento",
       "itens": [
-        { "hora": "12:20h às 12:30h", "descricao": "Deslocamento dos convidados para o Sal e Brasa." }
+        {
+          "hora": "12:20h às 12:30h",
+          "descricao": "Deslocamento dos convidados para o Sal e Brasa."
+        }
       ]
     },
     {
       "titulo": "Recepção – Sal e Brasa",
       "itens": [
-        { "hora": "12:30h", "descricao": "Chegada dos convidados." },
-        { "hora": "12:40h", "descricao": "Entrada dos noivos." },
-        { "hora": "12:45h", "descricao": "Início do almoço." },
-        { "hora": "14:00h", "descricao": "Corte do bolo e brinde." },
-        { "hora": "14:30h", "descricao": "Fotos e confraternização." },
-        { "hora": "15:00h", "descricao": "Jogo do buquê (opcional, caso não tenha sido realizado na igreja).", "opcional": true },
-        { "hora": "15:30h", "descricao": "Jogo do buquê (opcional, caso seja realizado próximo ao encerramento da recepção).", "opcional": true },
-        { "hora": "16:00h", "descricao": "Encerramento da recepção." }
+        {
+          "hora": "12:30h",
+          "descricao": "Chegada dos convidados."
+        },
+        {
+          "hora": "12:40h",
+          "descricao": "Entrada dos noivos."
+        },
+        {
+          "hora": "12:45h",
+          "descricao": "Início do almoço."
+        },
+        {
+          "hora": "14:00h",
+          "descricao": "Corte do bolo e brinde."
+        },
+        {
+          "hora": "14:30h",
+          "descricao": "Fotos e confraternização."
+        },
+        {
+          "hora": "15:00h",
+          "descricao": "Jogo do buquê (opcional, caso não tenha sido realizado na igreja).",
+          "opcional": true
+        },
+        {
+          "hora": "15:30h",
+          "descricao": "Jogo do buquê (opcional, caso seja realizado próximo ao encerramento da recepção).",
+          "opcional": true
+        },
+        {
+          "hora": "16:00h",
+          "descricao": "Encerramento da recepção."
+        }
       ]
     }
   ],
