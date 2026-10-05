@@ -764,7 +764,7 @@
     "nome": "Daniel (Tio)",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
+    "status": "Confirmado",
     "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": ""
@@ -944,8 +944,8 @@
     "nome": "João",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
-    "chance": "Média",
+    "status": "Confirmado",
+    "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Primo do noivo, filho de Daniel"
   },
@@ -954,8 +954,8 @@
     "nome": "Maria",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
-    "chance": "Média",
+    "status": "Confirmado",
+    "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Prima do noivo, filha de Daniel"
   },
@@ -964,8 +964,8 @@
     "nome": "Magda",
     "lado": "Thomaz",
     "grupo": "Família de thomaz",
-    "status": "A confirmar",
-    "chance": "Média",
+    "status": "Confirmado",
+    "chance": "Alta",
     "tipo": "Adulto",
     "observacoes": "Esposa de Daniel (Tio)"
   },
